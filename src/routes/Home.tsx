@@ -26,7 +26,7 @@ export default function Home() {
         <BackgroundVideo
           src="/videos/hero.mp4"
           mobileSrc="/videos/hero-portrait.mp4"
-          /* TODO: substituir por poster real em /public/images/hero-poster.jpg */
+          poster="/images/hero-poster.jpg"
         />
         <div className={`container ${styles.heroContent}`}>
           <Reveal>
