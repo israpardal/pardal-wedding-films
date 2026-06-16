@@ -69,11 +69,10 @@ export const FILMS: Film[] = [
     provider: "local",
     videoId: "",
     url: "",
-    // Aponta pro arquivo correto. Enquanto o gizele-anderson.mp4 (comprimido
-    // pelo HandBrake) não estiver em /public/videos, o card simplesmente
-    // mostra o placeholder elegante em vez de tocar vídeo de outro casamento.
+    // Detalhe: 540p, 59MB — qualidade decente em tela cheia.
     videoSrc: "/videos/gizele-anderson.mp4",
-    previewSrc: "/videos/gizele-anderson.mp4",
+    // Card de prévia: 360p, 10MB — autoplay-on-view, carrega rápido na grade.
+    previewSrc: "/videos/gizele-anderson-preview.mp4",
   },
 ];
 

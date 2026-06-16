@@ -17,3 +17,6 @@ dist-ssr
 /*.mov
 /*.MOV
 /*.MP4
+
+# Pasta de referências de design — não vai pro deploy
+/pardal/
