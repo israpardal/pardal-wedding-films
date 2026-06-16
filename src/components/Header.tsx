@@ -63,12 +63,7 @@ export default function Header() {
             Fechar
           </button>
           {NAV_LINKS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={styles.link}
-              end={item.to === "/"}
-            >
+            <NavLink key={item.to} to={item.to} className={styles.link}>
               {item.label}
             </NavLink>
           ))}
