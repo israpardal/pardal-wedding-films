@@ -43,9 +43,17 @@
 }
 
 .brandLogo {
-  width: 36px;
-  height: 36px;
-  color: inherit;
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: filter var(--dur-med) var(--ease-out);
+}
+
+/* Sobre o hero escuro: inverte a logo preta pra branca.
+   Quando o header rola e fica claro (data-scrolled), volta ao preto. */
+.header:not([data-scrolled="true"]):not([data-light="true"]) .brandLogo {
+  filter: invert(1) brightness(1.1);
 }
 
 .brandText {
