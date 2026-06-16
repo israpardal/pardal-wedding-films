@@ -166,6 +166,15 @@
   text-align: center;
 }
 
+.manifestoEyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  color: var(--color-navy);
+  margin-bottom: var(--space-5);
+}
+
 .manifestoTitle {
   font-family: var(--font-display);
   font-style: italic;

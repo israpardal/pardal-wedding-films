@@ -61,6 +61,29 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-5);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .heroContent {
+    padding-block: var(--space-7) var(--space-7);
+  }
+  .heroEyebrow {
+    letter-spacing: 0.35em;
+    margin-bottom: var(--space-5);
+  }
+  .heroTitle {
+    font-size: clamp(2.8rem, 11vw, 4.5rem);
+    max-width: 14ch;
+  }
+  .heroLede {
+    font-size: var(--fs-base);
+    max-width: 32ch;
+  }
+  .heroCtas {
+    gap: var(--space-4);
+  }
 }
 
 .heroLink {
@@ -102,11 +125,69 @@
   transform-origin: left center;
 }
 
+/* WhatsApp CTA — destaque clássico: ícone + texto, filete sempre presente */
+.heroLinkWpp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-paper);
+}
+
+.heroLinkWppIcon {
+  color: var(--color-paper);
+  display: inline-block;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.heroLinkWpp:hover .heroLinkWppIcon {
+  transform: rotate(-6deg);
+}
+
 .heroDot {
   width: 6px;
   height: 6px;
   background-color: rgba(246, 244, 239, 0.5);
   transform: rotate(45deg);
+}
+
+/* ─────────  COMPROMISSO — bloco editorial entre featured e filosofia  ───────── */
+
+.promise {
+  padding-block: clamp(var(--space-9), 14vw, var(--space-10));
+  text-align: center;
+  background-color: var(--color-paper-warm);
+}
+
+.promiseOrnament {
+  display: block;
+  margin: 0 auto var(--space-5);
+  color: var(--color-navy);
+}
+
+.promiseEyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  color: var(--color-navy);
+  margin-bottom: var(--space-6);
+}
+
+.promiseBody {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-xl);
+  line-height: 1.45;
+  color: var(--color-ink);
+  max-width: 38ch;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .promiseBody {
+    font-size: var(--fs-lg);
+    max-width: 32ch;
+  }
 }
 
 /* ─────────  INTRO  ───────── */

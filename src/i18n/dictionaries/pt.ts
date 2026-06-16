@@ -39,7 +39,7 @@ export const pt = {
     title: "Filmes para o tempo passar devagar.",
     lede: "Pardal é uma produtora de filmes de casamento. Um jeito de filmar quieto, observador — feito para envelhecer junto com vocês.",
     ctaPrimary: "Ver filmes",
-    ctaSecondary: "Conversar",
+    ctaSecondary: "WhatsApp",
     scroll: "scroll",
   },
   intro: {
@@ -78,6 +78,10 @@ export const pt = {
   portfolioPreview: {
     title: "Filmes recentes.",
     all: "Ver portfólio completo",
+  },
+  promise: {
+    eyebrow: "Nosso compromisso",
+    body: "Nosso compromisso é transformar memórias em arte, com discrição, sensibilidade e sofisticação. Acreditamos que cada história de amor merece ser contada com o cuidado de um olhar atento e apaixonado. Será uma honra fazer parte deste capítulo tão especial da vida de vocês.",
   },
   homeClosing: {
     title: "Vamos filmar o casamento de vocês?",
@@ -118,6 +122,10 @@ export const pt = {
     foundersTitle: "Quem está atrás da câmera.",
     foundersBody:
       "Pardal é trabalho de irmãos. Dois olhares, uma só mão — combinamos as funções de filme em filme, mas o jeito de olhar a gente herdou da mesma casa.",
+    manifestoEyebrow: "Linguagem",
+    manifestoTitle: "Uma estética atemporal.",
+    manifestoBody:
+      "Nossos filmes são construídos sob uma estética atemporal — elegante, clássica e sensível. Acredito na beleza que permanece, na emoção que resiste ao tempo e na narrativa que valoriza o essencial. Cada cena é pensada como uma memória viva, com composições delicadas, ritmo cinematográfico e uma direção sutil, que respeita a autenticidade de cada casal. Não busco modismos ou tendências passageiras. Minha linguagem visual é discreta, refinada e comprometida com a verdade de cada história.",
     valuesTitle: "Valores",
     values: {
       one: {
@@ -212,9 +220,11 @@ export const pt = {
     },
     submit: "Enviar mensagem",
     submitted: "Aberto no seu e-mail",
+    submitNote:
+      "Ao enviar, abre o seu e-mail com a mensagem já pronta. A gente responde por e-mail ou WhatsApp em até 24h.",
     asideTitle: "Ou diretamente.",
     asideText:
-      "Se preferir, fala com a gente pelo WhatsApp ou pelo Instagram.",
+      "Se preferir, fala com a gente pelo WhatsApp — costuma ser o caminho mais rápido.",
     asideLabels: {
       whatsapp: "WhatsApp",
       instagram: "Instagram",

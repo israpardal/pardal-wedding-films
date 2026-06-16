@@ -153,6 +153,9 @@ export default function Contact() {
                   ? t((d) => d.contact.submitted)
                   : t((d) => d.contact.submit)}
               </button>
+              <p className={styles.submitNote}>
+                {t((d) => d.contact.submitNote)}
+              </p>
             </form>
           </Reveal>
 

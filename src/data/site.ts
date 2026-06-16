@@ -10,9 +10,10 @@ export const SITE = {
   description:
     "Pardal Wedding Films — produtora de filmes de casamento com estética analógica e atemporal. Brasil, atendendo em todo o território nacional.",
   location: "Brasil — nationwide",
-  // E-mail de contato (formulário pode usar mailto: enquanto não há backend)
-  // TODO: substituir pelo e-mail real
-  email: "contato@pardal.co",
+  // E-mail de contato — o submit do formulário abre o cliente de e-mail
+  // do visitante com este endereço como destinatário.
+  // Quando registrar contato@pardal.co, é só trocar aqui.
+  email: "israelpardalbackup@gmail.com",
 } as const;
 
 export const SOCIAL = {

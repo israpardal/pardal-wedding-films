@@ -6,7 +6,9 @@ import Ornament from "../components/Ornament";
 import PageTransition from "../components/PageTransition";
 import Reveal from "../components/Reveal";
 import SEO from "../components/SEO";
+import WhatsAppIcon from "../components/WhatsAppIcon";
 import { FILMS } from "../data/films";
+import { SOCIAL } from "../data/site";
 import { useT } from "../i18n/I18nProvider";
 import styles from "./Home.module.css";
 
@@ -39,12 +41,15 @@ export default function Home() {
                 {t((d) => d.hero.ctaPrimary)}
               </Link>
               <span className={styles.heroDot} aria-hidden="true" />
-              <Link
-                to="/contato"
-                className={`${styles.heroLink} ${styles.heroLinkGhost}`}
+              <a
+                href={SOCIAL.whatsapp.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className={`${styles.heroLink} ${styles.heroLinkWpp}`}
               >
+                <WhatsAppIcon size={18} className={styles.heroLinkWppIcon} />
                 {t((d) => d.hero.ctaSecondary)}
-              </Link>
+              </a>
             </div>
           </Reveal>
         </div>
@@ -77,6 +82,19 @@ export default function Home() {
             <h2 id="featured-title" className={styles.featuredTitle}>
               {t((d) => d.featured.title)}
             </h2>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ────── COMPROMISSO — bloco editorial centrado ────── */}
+      <section className={styles.promise}>
+        <div className="container-narrow">
+          <Reveal>
+            <Ornament className={styles.promiseOrnament} size={120} />
+            <p className={styles.promiseEyebrow}>
+              {t((d) => d.promise.eyebrow)}
+            </p>
+            <p className={styles.promiseBody}>{t((d) => d.promise.body)}</p>
           </Reveal>
         </div>
       </section>

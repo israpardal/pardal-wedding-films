@@ -124,7 +124,22 @@ export default function About() {
           </Reveal>
         </section>
 
-        {/* Manifesto editorial */}
+        {/* Manifesto editorial — voz do diretor, em primeira pessoa */}
+        <section className={styles.manifesto}>
+          <Reveal>
+            <p className={styles.manifestoEyebrow}>
+              {t((d) => d.about.manifestoEyebrow)}
+            </p>
+            <h2 className={styles.manifestoTitle}>
+              {t((d) => d.about.manifestoTitle)}
+            </h2>
+            <div className={styles.manifestoBody}>
+              <p>{t((d) => d.about.manifestoBody)}</p>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* Bloco editorial — voz do estúdio */}
         <section className={styles.manifesto}>
           <Reveal>
             <h2 className={styles.manifestoTitle}>

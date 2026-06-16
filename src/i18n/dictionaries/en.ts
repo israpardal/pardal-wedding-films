@@ -46,7 +46,7 @@ export const en: Dict = {
     title: "Films made for time to pass slowly.",
     lede: "Pardal is a wedding film studio. A quiet, observant way of filming — made to age with you.",
     ctaPrimary: "See films",
-    ctaSecondary: "Get in touch",
+    ctaSecondary: "WhatsApp",
     scroll: "scroll",
   },
   intro: {
@@ -85,6 +85,10 @@ export const en: Dict = {
   portfolioPreview: {
     title: "Recent films.",
     all: "See full portfolio",
+  },
+  promise: {
+    eyebrow: "Our commitment",
+    body: "Our commitment is to turn memories into art — with discretion, sensitivity, and grace. We believe that every love story deserves to be told with the care of an attentive, devoted eye. It will be an honour to be part of this chapter of your lives.",
   },
   homeClosing: {
     title: "Shall we film your wedding?",
@@ -125,6 +129,10 @@ export const en: Dict = {
     foundersTitle: "Who is behind the camera.",
     foundersBody:
       "Pardal is the work of two brothers. Two ways of seeing, one hand — we trade roles from film to film, but our way of looking we inherited from the same home.",
+    manifestoEyebrow: "Language",
+    manifestoTitle: "A timeless aesthetic.",
+    manifestoBody:
+      "Our films are built on a timeless aesthetic — elegant, classical, sensitive. I believe in beauty that lasts, in emotion that holds up against time, in a narrative that values what is essential. Each scene is shaped as a living memory, with delicate compositions, cinematic pacing, and a subtle direction that respects the authenticity of every couple. I'm not chasing trends. My visual language is discreet, refined, and committed to the truth of each story.",
     valuesTitle: "Values",
     values: {
       one: {
@@ -219,8 +227,11 @@ export const en: Dict = {
     },
     submit: "Send message",
     submitted: "Opened in your email",
+    submitNote:
+      "On send, this opens your email client with the message pre-filled. We reply by email or WhatsApp within 24h.",
     asideTitle: "Or directly.",
-    asideText: "If you prefer, message us on WhatsApp or Instagram.",
+    asideText:
+      "If you prefer, message us on WhatsApp — usually the fastest way.",
     asideLabels: {
       whatsapp: "WhatsApp",
       instagram: "Instagram",
