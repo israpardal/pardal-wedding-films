@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import GrainOverlay from "./components/GrainOverlay";
 import Header from "./components/Header";
+import { useLenis } from "./hooks/useLenis";
 import { I18nProvider } from "./i18n/I18nProvider";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
@@ -24,6 +25,7 @@ function ScrollToTop() {
 
 function AppShell() {
   const location = useLocation();
+  useLenis();
 
   return (
     <>

@@ -48,6 +48,8 @@ export const en: Dict = {
     ctaPrimary: "See films",
     ctaSecondary: "WhatsApp",
     scroll: "scroll",
+    soundOn: "Listen",
+    soundOff: "Mute",
   },
   intro: {
     eyebrow: "What we do",

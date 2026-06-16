@@ -41,6 +41,8 @@ export const pt = {
     ctaPrimary: "Ver filmes",
     ctaSecondary: "WhatsApp",
     scroll: "scroll",
+    soundOn: "Ouvir",
+    soundOff: "Silenciar",
   },
   intro: {
     eyebrow: "O que fazemos",

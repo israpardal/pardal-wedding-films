@@ -29,6 +29,9 @@ export default function Home() {
           src="/videos/hero.mp4"
           mobileSrc="/videos/hero-portrait.mp4"
           poster="/images/hero-poster.jpg"
+          audioToggle
+          audioOnLabel={t((d) => d.hero.soundOn)}
+          audioOffLabel={t((d) => d.hero.soundOff)}
         />
         <div className={`container ${styles.heroContent}`}>
           <Reveal>

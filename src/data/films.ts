@@ -69,10 +69,11 @@ export const FILMS: Film[] = [
     provider: "local",
     videoId: "",
     url: "",
-    // TODO: o arquivo Gizele&Anderson.mov tem 227MB — comprima para
-    // /public/videos/gizele-anderson.mp4 (~12MB) com HandBrake antes de subir.
-    // Enquanto isso, usamos um preview alternativo para o card não ficar vazio.
-    previewSrc: "/videos/sofia-emanuel.mp4",
+    // Aponta pro arquivo correto. Enquanto o gizele-anderson.mp4 (comprimido
+    // pelo HandBrake) não estiver em /public/videos, o card simplesmente
+    // mostra o placeholder elegante em vez de tocar vídeo de outro casamento.
+    videoSrc: "/videos/gizele-anderson.mp4",
+    previewSrc: "/videos/gizele-anderson.mp4",
   },
 ];
 
