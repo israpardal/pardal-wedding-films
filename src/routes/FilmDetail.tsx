@@ -17,6 +17,7 @@ export default function FilmDetail() {
 
   if (!film) return <NotFound />;
 
+  const hasExternalLink = film.provider !== "local" && film.url;
   const platformName = film.provider === "vimeo" ? "Vimeo" : "YouTube";
 
   return (
@@ -71,15 +72,19 @@ export default function FilmDetail() {
 
             <Reveal delay={0.1}>
               <div className={styles.actions}>
-                <a
-                  href={film.url}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className={styles.link}
-                >
-                  {t((d) => d.filmDetail.openOn)} {platformName}
-                </a>
-                <span className={styles.dot} aria-hidden="true" />
+                {hasExternalLink && (
+                  <>
+                    <a
+                      href={film.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={styles.link}
+                    >
+                      {t((d) => d.filmDetail.openOn)} {platformName}
+                    </a>
+                    <span className={styles.dot} aria-hidden="true" />
+                  </>
+                )}
                 <Link to="/filmes" className={styles.link}>
                   {t((d) => d.filmDetail.backToFilms)}
                 </Link>

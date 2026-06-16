@@ -1,10 +1,17 @@
 /**
- * Filmes do portfólio.
- * TODO: substituir os placeholders pelos dados reais — capa, link do Vimeo/YouTube,
- * nome do casal, local. O esquema abaixo é estável; só adicione/remova entradas.
+ * Filmes do portfólio — casamentos reais filmados pela Pardal.
+ *
+ * Como adicionar um filme novo:
+ *  1) Salve o vídeo principal em /public/videos/<casal>.mp4
+ *  2) (opcional) Salve um clip curto, leve, em loop em /public/videos/<casal>-preview.mp4
+ *     — usado na grade de filmes (autoplay mute). Se não houver, usa o mesmo principal.
+ *  3) Adicione uma entrada abaixo.
+ *
+ * Observação: o navegador NÃO toca vídeo com áudio sem interação do usuário.
+ * Os arquivos preservam o áudio original, mas o autoplay é sempre mute.
  */
 
-export type FilmProvider = "vimeo" | "youtube";
+export type FilmProvider = "vimeo" | "youtube" | "local";
 
 export interface Film {
   /** slug usado na URL: /filmes/:slug */
@@ -17,9 +24,9 @@ export interface Film {
   year: number;
   /** Plataforma do vídeo (para o link "Abrir no Vimeo/YouTube" no detalhe) */
   provider: FilmProvider;
-  /** ID do vídeo na plataforma */
+  /** ID do vídeo na plataforma (vazio se "local") */
   videoId: string;
-  /** URL pública do vídeo */
+  /** URL pública do vídeo (vazio se "local") */
   url: string;
   /** Caminho local do vídeo principal em /public/videos — usado como fundo na página de detalhe */
   videoSrc?: string;
@@ -33,52 +40,39 @@ export interface Film {
 
 export const FILMS: Film[] = [
   {
-    slug: "filme-em-destaque",
-    couple: "Filme em destaque",
-    location: "Brasil",
-    year: 2025,
-    provider: "vimeo",
-    videoId: "1151770467",
-    url: "https://vimeo.com/1151770467",
-    videoSrc: "/videos/hero.mp4",
-    previewSrc: "/videos/hero.mp4",
-    blurb:
-      "Um recorte do nosso jeito de filmar — quieto, observador, à espera dos gestos pequenos.",
-  },
-  // TODO: substituir pelos filmes reais
-  {
-    slug: "ana-e-tomas",
-    couple: "Ana & Tomás",
-    location: "Tiradentes — MG",
+    slug: "luana-e-denilson",
+    couple: "Luana & Denilson",
+    location: "Parauapebas — PA",
     year: 2024,
-    provider: "vimeo",
-    videoId: "000000000",
-    url: "https://vimeo.com/000000000",
-    previewSrc: "/videos/hero-portrait.mp4",
-    blurb:
-      "Um casamento na serra, com névoa baixa e um vestido que parecia escrito à mão.",
+    provider: "local",
+    videoId: "",
+    url: "",
+    videoSrc: "/videos/luana-denilson.mp4",
+    previewSrc: "/videos/luana-denilson.mp4",
   },
   {
-    slug: "marina-e-rafael",
-    couple: "Marina & Rafael",
-    location: "Trancoso — BA",
+    slug: "sofia-e-emanuel",
+    couple: "Sofia & Emanuel",
+    location: "Tucuruí — PA",
     year: 2024,
-    provider: "vimeo",
-    videoId: "000000000",
-    url: "https://vimeo.com/000000000",
-    previewSrc: "/videos/hero.mp4",
-    blurb: "O mar como testemunha, o vento como câmera.",
+    provider: "local",
+    videoId: "",
+    url: "",
+    videoSrc: "/videos/sofia-emanuel.mp4",
+    previewSrc: "/videos/sofia-emanuel.mp4",
   },
   {
-    slug: "clara-e-pedro",
-    couple: "Clara & Pedro",
-    location: "Curitiba — PR",
-    year: 2023,
-    provider: "vimeo",
-    videoId: "000000000",
-    url: "https://vimeo.com/000000000",
-    previewSrc: "/videos/hero-portrait.mp4",
-    blurb: "Uma cerimônia íntima, em casa, à luz de fim de tarde.",
+    slug: "gizele-e-anderson",
+    couple: "Gizele & Anderson",
+    location: "Marabá — PA",
+    year: 2024,
+    provider: "local",
+    videoId: "",
+    url: "",
+    // TODO: o arquivo Gizele&Anderson.mov tem 227MB — comprima para
+    // /public/videos/gizele-anderson.mp4 (~12MB) com HandBrake antes de subir.
+    // Enquanto isso, usamos um preview alternativo para o card não ficar vazio.
+    previewSrc: "/videos/sofia-emanuel.mp4",
   },
 ];
 
@@ -90,5 +84,8 @@ export function embedSrc(film: Film): string {
   if (film.provider === "vimeo") {
     return `https://player.vimeo.com/video/${film.videoId}?title=0&byline=0&portrait=0&dnt=1`;
   }
-  return `https://www.youtube.com/embed/${film.videoId}?rel=0&modestbranding=1`;
+  if (film.provider === "youtube") {
+    return `https://www.youtube.com/embed/${film.videoId}?rel=0&modestbranding=1`;
+  }
+  return "";
 }

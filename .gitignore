@@ -11,3 +11,9 @@ dist-ssr
 .claude/
 .vscode/
 .idea/
+
+# Source / working videos at project root — só os arquivos em public/videos vão pro deploy
+/*.mp4
+/*.mov
+/*.MOV
+/*.MP4

@@ -246,32 +246,6 @@
   flex-direction: column;
   gap: var(--space-3);
   padding-block: var(--space-5) 0;
-  position: relative;
-}
-
-.threeItem:not(:first-child)::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-navy);
-}
-
-@media (max-width: 760px) {
-  .threeItem:not(:first-child)::before {
-    top: -16px;
-  }
-}
-
-.threeNum {
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--color-navy);
 }
 
 .threeTitle {

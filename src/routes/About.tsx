@@ -19,22 +19,15 @@ import styles from "./About.module.css";
  *
  * Enquanto não estiverem na pasta, mostramos um placeholder elegante.
  */
+/**
+ * Galeria dos fundadores.
+ * Substitua/adicione arquivos em /public/images/ com os mesmos nomes
+ * para trocar as fotos sem mexer no código.
+ */
 const FOUNDER_PHOTOS = [
-  {
-    file: "/images/founder-israel.jpg",
-    captionPt: "Israel",
-    captionEn: "Israel",
-  },
-  {
-    file: "/images/founder-brothers.jpg",
-    captionPt: "Os irmãos",
-    captionEn: "The brothers",
-  },
-  {
-    file: "/images/founder-portrait.jpg",
-    captionPt: "Retrato",
-    captionEn: "Portrait",
-  },
+  { file: "/images/founder-israel.jpg", alt: "Israel" },
+  { file: "/images/equipe.jpg", alt: "Equipe Pardal" },
+  { file: "/images/founder-gabriel.jpg", alt: "Gabriel" },
 ];
 
 function FounderPhoto({
@@ -114,17 +107,17 @@ export default function About() {
             <div className={styles.foundersGrid}>
               <FounderPhoto
                 src={FOUNDER_PHOTOS[0].file}
-                alt={FOUNDER_PHOTOS[0].captionPt}
+                alt={FOUNDER_PHOTOS[0].alt}
                 className={styles.photoLeft}
               />
               <FounderPhoto
                 src={FOUNDER_PHOTOS[1].file}
-                alt={FOUNDER_PHOTOS[1].captionPt}
+                alt={FOUNDER_PHOTOS[1].alt}
                 className={styles.photoCenter}
               />
               <FounderPhoto
                 src={FOUNDER_PHOTOS[2].file}
-                alt={FOUNDER_PHOTOS[2].captionPt}
+                alt={FOUNDER_PHOTOS[2].alt}
                 className={styles.photoRight}
               />
             </div>
@@ -156,9 +149,6 @@ export default function About() {
 
           <ul className={styles.valuesGrid}>
             <Reveal as="li" className={styles.value} delay={0.05}>
-              <span className={styles.valueLabel}>
-                {t((d) => d.about.values.one.label)}
-              </span>
               <h3 className={styles.valueTitle}>
                 {t((d) => d.about.values.one.title)}
               </h3>
@@ -167,9 +157,6 @@ export default function About() {
               </p>
             </Reveal>
             <Reveal as="li" className={styles.value} delay={0.15}>
-              <span className={styles.valueLabel}>
-                {t((d) => d.about.values.two.label)}
-              </span>
               <h3 className={styles.valueTitle}>
                 {t((d) => d.about.values.two.title)}
               </h3>
@@ -178,9 +165,6 @@ export default function About() {
               </p>
             </Reveal>
             <Reveal as="li" className={styles.value} delay={0.25}>
-              <span className={styles.valueLabel}>
-                {t((d) => d.about.values.three.label)}
-              </span>
               <h3 className={styles.valueTitle}>
                 {t((d) => d.about.values.three.title)}
               </h3>
@@ -189,9 +173,6 @@ export default function About() {
               </p>
             </Reveal>
             <Reveal as="li" className={styles.value} delay={0.35}>
-              <span className={styles.valueLabel}>
-                {t((d) => d.about.values.four.label)}
-              </span>
               <h3 className={styles.valueTitle}>
                 {t((d) => d.about.values.four.title)}
               </h3>

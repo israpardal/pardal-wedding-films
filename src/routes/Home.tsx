@@ -67,7 +67,7 @@ export default function Home() {
 
       {/* ────── FILME EM DESTAQUE — vídeo de fundo, sem iframe ────── */}
       <section className={styles.featured} aria-labelledby="featured-title">
-        <BackgroundVideo src="/videos/hero-portrait.mp4" scrim="default" />
+        <BackgroundVideo src="/videos/sofia-emanuel.mp4" scrim="default" />
         <div className={`container ${styles.featuredContent}`}>
           <Reveal>
             <p className={styles.featuredEyebrow}>
@@ -99,9 +99,6 @@ export default function Home() {
 
           <div className={styles.three}>
             <Reveal as="article" className={styles.threeItem} delay={0.05}>
-              <span className={styles.threeNum}>
-                {t((d) => d.philosophy.one.label)}
-              </span>
               <h3 className={styles.threeTitle}>
                 {t((d) => d.philosophy.one.title)}
               </h3>
@@ -111,9 +108,6 @@ export default function Home() {
             </Reveal>
 
             <Reveal as="article" className={styles.threeItem} delay={0.15}>
-              <span className={styles.threeNum}>
-                {t((d) => d.philosophy.two.label)}
-              </span>
               <h3 className={styles.threeTitle}>
                 {t((d) => d.philosophy.two.title)}
               </h3>
@@ -123,9 +117,6 @@ export default function Home() {
             </Reveal>
 
             <Reveal as="article" className={styles.threeItem} delay={0.25}>
-              <span className={styles.threeNum}>
-                {t((d) => d.philosophy.three.label)}
-              </span>
               <h3 className={styles.threeTitle}>
                 {t((d) => d.philosophy.three.title)}
               </h3>
