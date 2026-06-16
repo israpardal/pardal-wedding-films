@@ -1,9 +1,9 @@
 # Pardal Wedding Films — site institucional
 
 Site institucional da **Pardal Wedding Films**, produtora brasileira de filmes
-de casamento (Brasil, *nationwide*). A direção criativa é **única, poética e
-analógica — atemporal**, e o site foi construído para sumir em favor das
-imagens em movimento.
+de casamento (Brasil, *nationwide*). Estética **clássica, atemporal,
+poética** — referência editorial de convite de casamento, não app minimalista
+moderno.
 
 ## Stack
 
@@ -13,22 +13,17 @@ imagens em movimento.
 - **CSS Modules** + variáveis CSS centralizadas (`src/styles/tokens.css`)
 - **@fontsource** (Cormorant Garamond + Manrope) como fallbacks elegantes
   enquanto as fontes oficiais (Eglen + Codec Pro, do Canva) não estão presentes
-
-Sem framework de UI pesado (nada de Bootstrap, MUI, Tailwind etc.) — para que
-a aparência não puxe para "template moderno".
+- **i18n próprio** PT/EN — leve, sem `react-i18next`
 
 ## Como rodar
 
-> Pré-requisito: **Node.js 18+** instalado (https://nodejs.org). Em macOS sem
-> Node, a forma mais comum é via Homebrew (`brew install node`) ou baixando o
-> instalador no site oficial.
+> Pré-requisito: **Node.js 18+** (https://nodejs.org).
+> Em macOS: `brew install node` (precisa do Homebrew — https://brew.sh).
 
 ```bash
 npm install
 npm run dev
 ```
-
-O Vite vai abrir `http://localhost:5173` automaticamente.
 
 Build de produção:
 
@@ -46,146 +41,204 @@ npm run lint
 ## Estrutura
 
 ```
-index.html               # meta tags base (pt-BR, OG, etc.)
+index.html               # meta tags base (pt-BR como default; OG, etc.)
 public/
-  favicon.svg
-  fonts/                 # PONHA AQUI Eglen.woff2 e CodecPro-*.woff2 (ver README da pasta)
-  images/                # posters, fotos, og-cover.jpg
-  videos/                # hero.mp4 (opcional, vídeo de fundo do hero)
+  favicon.svg            # logo Pardal em SVG
+  fonts/                 # PONHA AQUI Eglen.woff2 + CodecPro-*.woff2
+  images/                # fotos dos fundadores + posters dos filmes
+  videos/
+    hero.mp4             # ✓ presente — vídeo de fundo do hero (horizontal)
+    hero-portrait.mp4    # ✓ presente — variante vertical (mobile/seção destaque)
 src/
   main.tsx               # bootstrap; importa fontes-fallback + estilos globais
-  App.tsx                # router + header/footer + grain overlay + page transitions
+  App.tsx                # router + I18nProvider + header/footer
   routes/
-    Home.tsx
-    Films.tsx            # lista do portfólio (/filmes)
-    FilmDetail.tsx       # detalhe (/filmes/:slug)
-    About.tsx            # /sobre
-    Investment.tsx       # /investimento
-    Contact.tsx          # /contato
+    Home.tsx             # hero com vídeo de fundo + filme em destaque (sem iframe)
+    Films.tsx            # grid editorial (não-cartoon) com vídeos autoplay
+    FilmDetail.tsx       # detalhe — vídeo do filme como fundo do hero
+    About.tsx            # editorial + galeria com 3 fotos dos fundadores
+    Investment.tsx       # pacotes tipo "menu", sem caixas
+    Contact.tsx          # formulário + WhatsApp em ícone monocromático
     NotFound.tsx
   components/
-    Header.tsx           # nav minimalista, transparente sobre o hero, fundo no scroll
+    Header.tsx           # logo Pardal, nav, switch PT/EN
     Footer.tsx
-    GrainOverlay.tsx     # textura de grão (SVG inline, fixed, mix-blend-mode)
-    VideoHero.tsx        # hero com vídeo de fundo lazy + poster + scrim
-    FilmCard.tsx         # cartão de filme no portfólio
-    Reveal.tsx           # fade + leve translateY na entrada (respeita reduce-motion)
+    BackgroundVideo.tsx  # vídeo de fundo autoplay, sem chrome, lazy
+    FilmCard.tsx         # vídeo preview autoplay-on-view, sem moldura quadrada
+    GrainOverlay.tsx     # textura de grão (SVG inline)
+    Ornament.tsx         # ornamento decorativo (estilo convite)
+    PardalLogo.tsx       # logo geométrica (4 retângulos)
+    WhatsAppIcon.tsx     # ícone WA monocromático
+    LangSwitch.tsx       # PT | EN
+    Reveal.tsx           # fade + slight translateY (respeita reduce-motion)
     PageTransition.tsx   # cross-fade entre rotas
-    SEO.tsx              # atualiza <title> e <meta description> por rota
+    SEO.tsx              # atualiza <title>/<meta> por rota
+  i18n/
+    I18nProvider.tsx     # contexto + useT() + useLang()
+    dictionaries/
+      pt.ts              # textos em português (default)
+      en.ts              # textos em inglês
   data/
-    site.ts              # nome, contatos, links (Instagram, WhatsApp, Vimeo)
-    films.ts             # lista de filmes do portfólio
+    site.ts              # contatos, links, NAV
+    films.ts             # filmes do portfólio
   hooks/
     usePrefersReducedMotion.ts
   styles/
-    tokens.css           # cores, tipografia, espaçamento, easing
-    global.css           # reset, base, utilitários (.container, .eyebrow, etc.)
-    fonts.css            # @font-face das fontes oficiais (carregam quando os arquivos chegarem)
+    tokens.css           # cores, tipografia, easing, durations
+    global.css           # reset, base, .display-italic, .container
+    fonts.css            # @font-face Eglen + Codec Pro
 ```
 
 ## Onde editar o quê
 
-| Quero mudar…                    | Edite…                                |
-|---------------------------------|---------------------------------------|
-| Cores / tipografia / spacing    | `src/styles/tokens.css`               |
-| Nome, e-mail, redes sociais     | `src/data/site.ts`                    |
-| Filme em destaque (Home)        | `src/data/site.ts` (`FEATURED_VIDEO`) |
-| Filmes do portfólio             | `src/data/films.ts`                   |
-| Texto da Home / Sobre / etc.    | os respectivos `src/routes/*.tsx`     |
-| Pacotes de investimento         | `src/routes/Investment.tsx` (`PACKAGES`) |
-| Itens da navegação              | `src/data/site.ts` (`NAV_LINKS`)      |
-| Meta tags base e OG             | `index.html`                          |
+| Quero mudar…                       | Edite…                                       |
+|------------------------------------|----------------------------------------------|
+| Textos em português                | `src/i18n/dictionaries/pt.ts`                |
+| Textos em inglês                   | `src/i18n/dictionaries/en.ts`                |
+| Cores / tipografia / spacing       | `src/styles/tokens.css`                      |
+| E-mail, Instagram, WhatsApp        | `src/data/site.ts`                           |
+| Filmes do portfólio                | `src/data/films.ts`                          |
+| Logo                               | `src/components/PardalLogo.tsx`              |
+| Ornamento (filete decorativo)      | `src/components/Ornament.tsx`                |
+| Itens da navegação                 | `src/components/Header.tsx` + `pt.ts`/`en.ts`|
+| Meta tags base (OG, twitter)       | `index.html`                                 |
 
 Pesquise por `TODO:` no código para encontrar tudo que está com placeholder.
 
+## Fotos dos fundadores
+
+A galeria da página **Sobre** tem 3 slots de foto. Para ativá-los, salve as
+imagens com **exatamente** estes nomes em `public/images/`:
+
+```
+public/images/founder-israel.jpg      → Israel sozinho (terno, gravata)
+public/images/founder-brothers.jpg    → Israel + irmão (close, gravatas)
+public/images/founder-portrait.jpg    → retrato sentado (cadeira / câmera no chão)
+```
+
+Os arquivos a serem usados estão entre as imagens que você enviou pelo chat.
+Salve-as no Finder (clique direito → "Salvar imagem como…") com os nomes
+acima e coloque na pasta. Enquanto não estiverem lá, aparece um placeholder
+elegante com o nome no lugar.
+
+> Recomendação: 1200–1600 px de largura, JPEG com qualidade ~80, formato
+> 3:4 (vertical). O CSS aplica `filter: grayscale(1)` — então as fotos podem
+> ser coloridas que o site converte na hora.
+
+## Vídeos
+
+Já incluídos no repositório (`public/videos/`):
+
+- **hero.mp4** (3.8 MB, 1278×720) — vídeo de fundo principal da Home.
+- **hero-portrait.mp4** (9.7 MB, 720×1280) — variante vertical, usada em mobile
+  e na seção "filme em destaque" da Home.
+
+O vídeo "rascunhoFILME.mov" (227 MB) **NÃO foi incluído** — é grande demais
+pra web (Vercel limita arquivos a 100 MB no plano grátis, e o carregamento
+seria lento mesmo com banda boa). Pra usá-lo:
+
+1. Abra no **HandBrake** (https://handbrake.fr) — grátis.
+2. Preset: "Vimeo YouTube HQ 720p30".
+3. Salve como `public/videos/filme-completo.mp4` (~10–15 MB).
+4. Adicione a entrada correspondente em `src/data/films.ts`.
+
+Pra novos filmes do portfólio, idealmente:
+- Versão completa hospedada em Vimeo (privado se preferir, com player embed).
+- Clip curto de ~10–20s em `public/videos/<nome>.mp4` para o preview do card
+  (referenciado em `films.ts` como `previewSrc`).
+
+## i18n — PT / EN
+
+O sistema de tradução é caseiro, leve e tipado:
+
+```tsx
+import { useT } from "./i18n/I18nProvider";
+
+const t = useT();
+<h1>{t(d => d.hero.title)}</h1>
+```
+
+O picker é tipado contra a estrutura do dicionário — TS sinaliza chaves
+inexistentes em tempo de build. A escolha do idioma fica em `localStorage`
+(`pardal:lang`), e a detecção inicial olha `navigator.language` (default PT).
+
+**Adicionar uma nova string:**
+1. Adicione a chave em `src/i18n/dictionaries/pt.ts`.
+2. Adicione a mesma chave em `en.ts` com a tradução.
+3. Use `t(d => d.suaChave)` no componente.
+
+**Tradução EN atual:** é primeira passada — revisar antes do site ir ao ar
+para garantir o tom (editorial, quieto, não corporativo).
+
 ## Fontes oficiais (Eglen + Codec Pro)
 
-Ambas pertencem ao Canva e não estão disponíveis como webfont aberta. O site
-foi construído assumindo isso:
+Ambas são do Canva e não estão disponíveis como webfont aberta.
 
-1. **Quando você tiver os arquivos** (`.woff2`), coloque-os em `public/fonts/`
+1. **Quando você tiver os arquivos** (`.woff2`), coloque em `public/fonts/`
    com os nomes exatos:
    - `Eglen.woff2`
    - `CodecPro-Regular.woff2`
    - `CodecPro-Medium.woff2`
    - `CodecPro-Bold.woff2`
-2. Não precisa mudar nada no código — as declarações em `src/styles/fonts.css`
-   já apontam para esses caminhos.
-3. Enquanto isso, o site usa **Cormorant Garamond** (display) e **Manrope**
-   (body) como fallbacks, carregados via `@fontsource`. Os fallbacks foram
-   escolhidos para preservar a sensação editorial/atemporal.
-
-Para trocar a fonte por completo, atualize as variáveis `--font-display` e
-`--font-body` em `src/styles/tokens.css`.
+2. Não precisa mudar nada no código — `src/styles/fonts.css` já aponta
+   pra esses caminhos.
+3. Enquanto isso, o site usa **Cormorant Garamond** (display, com itálico
+   para puxar o ar de convite de casamento) e **Manrope** (corpo).
 
 ## Formulário de contato
 
-Hoje o formulário NÃO tem backend — o submit monta um `mailto:` com os campos
-preenchidos e abre o cliente de e-mail do usuário. Para conectar a um backend
-de verdade (Resend, Formspree, Netlify Forms, função serverless, etc.):
+Hoje o submit monta um `mailto:` e abre o cliente de e-mail. Para conectar
+a um backend (Resend, Formspree, Netlify Forms, função serverless):
 
-1. Abra `src/routes/Contact.tsx`.
-2. Substitua o conteúdo do handler `onSubmit` por um `fetch` para o seu
-   endpoint.
-3. Trate estados de carregando / sucesso / erro.
-4. Considere adicionar verificação contra spam (já existe um honeypot básico
-   `name="website"`).
+1. Edite `src/routes/Contact.tsx`.
+2. Substitua o `onSubmit` por uma chamada `fetch` para o endpoint.
+3. Trate `loading` / `success` / `error` no estado local.
+4. O honeypot (`name="website"`) já está pronto para descartar bots.
 
-## Decisões de design (assumidas)
+## Decisões de design
 
-Conforme o briefing pediu para escolher e seguir, sem travar:
-
-- **Fundo claro** (off-white quente `#f6f4ef`) — para puxar a sensação de papel
-  e fotografia em filme. O texto principal é quase preto, e o **navy
-  (`#1b2a4a`)** aparece em links, hover, eyebrow labels e pequenos filetes.
-- **TypeScript** (e não JavaScript).
-- **Grão de filme** implementado em SVG inline (turbulence) — sem imagem
-  externa, sem custo de download. Animação suave do grão respeita
+- **Fundo claro** off-white quente (`#f6f4ef`).
+- **Display em itálico** (Eglen italic ou Cormorant italic) — tom de convite
+  de casamento, não app moderno.
+- **Sem cantos retos / sem caixas** — pacotes de investimento, citações e
+  blocos editoriais ficam apoiados na página, divididos por filetes finos
+  e diamantes (◆) navy minúsculos.
+- **Ornamento decorativo** acima dos títulos das páginas (`<Ornament />`).
+- **Vídeos como fundo, não iframes** — autoplay muted loop, sem player chrome.
+  Lazy: só carrega ao entrar na viewport; em mobile usa variante vertical.
+- **Transições lentas** (480–900 ms), easing `cubic-bezier(0.22, 0.61, 0.36, 1)`.
+- **Grão de filme** em SVG turbulence — sutil, animação respeita
   `prefers-reduced-motion`.
-- **Transições lentas** (durations entre 480–900 ms), sempre com easing
-  `cubic-bezier(0.22, 0.61, 0.36, 1)` — nada de bounce ou overshoot.
-- **Reveals no scroll** disparam uma única vez (`viewport.once = true`).
-- **Carregamento de vídeo**: o `VideoHero` só carrega o `<video>` quando o
-  elemento entra na viewport, e é desligado em mobile (≤640 px) e em
-  `prefers-reduced-motion: reduce` — nesses casos só o `poster` aparece.
 
 ## Acessibilidade
 
-- `lang="pt-BR"` em `<html>`.
+- `lang` dinâmico (pt-BR / en) em `<html>` conforme o switch.
 - Landmarks semânticos (`header`, `main`, `nav`, `footer`).
-- Foco visível (`:focus-visible` com outline navy).
-- Contraste OK em todos os pares de cor da paleta (ink em paper, paper em ink).
-- Animações respeitam `prefers-reduced-motion` em três níveis:
-  CSS (`tokens.css` zera durations), Framer Motion (`useReducedMotion`), e o
-  grão (sem animação).
+- `:focus-visible` em navy, sempre visível.
+- `prefers-reduced-motion` desliga vídeo, reveals e grão animado.
+- Honeypot anti-spam no formulário.
 
 ## SEO
 
-- Título + descrição por rota (componente `SEO`).
-- Open Graph e Twitter Card base no `index.html` — substitua `/og-cover.jpg`
-  pela imagem real (1200×630).
-- Estrutura semântica com `<h1>` único por página, `<article>`, `<section>`.
+- Title + description por rota (componente `SEO`, escutando o idioma).
+- Open Graph + Twitter Card base no `index.html`.
+- Substitua `/og-cover.jpg` por uma imagem real (1200×630).
 
-> **Dados estruturados (LocalBusiness)**: ainda não adicionados — quando você
-> tiver endereço, telefone e horário, vale adicionar um bloco JSON-LD em
-> `index.html` (ou usar a tag `<script type="application/ld+json">` na Home).
-
-## O que ainda é placeholder (você precisa fornecer)
+## Placeholders que esperam você
 
 - [ ] **Fontes oficiais** Eglen + Codec Pro em `public/fonts/`
-- [ ] **Vídeo de fundo do hero** (`public/videos/hero.mp4`) — opcional
-- [ ] **Poster do hero** (`public/images/hero-poster.jpg`)
-- [ ] **Imagem Open Graph** (`public/og-cover.jpg`, 1200×630)
-- [ ] **Foto preto e branco** da página Sobre
-- [ ] **Filmes reais** em `src/data/films.ts` (slug, casal, local, ano,
-      videoId do Vimeo/YouTube, poster)
-- [ ] **Valores reais** ou texto de pacote em `src/routes/Investment.tsx`
+- [ ] **Fotos dos fundadores** em `public/images/` (3 arquivos — ver acima)
+- [ ] **Imagem Open Graph** em `public/og-cover.jpg` (1200×630)
+- [ ] **Filmes reais** em `src/data/films.ts` (slug, casal, local, ano, videoId
+      do Vimeo/YouTube, `previewSrc` local opcional)
+- [ ] **Valores reais** de pacote (hoje "sob consulta") em `pt.ts`/`en.ts`
 - [ ] **E-mail real** em `src/data/site.ts` (`SITE.email`)
-- [ ] **Taglines / textos editoriais** — todas as frases poéticas são propostas
-      a revisar; busque por `TODO` no código.
+- [ ] **Revisar tradução EN** em `src/i18n/dictionaries/en.ts`
+- [ ] **Comprimir** `rascunhoFILME.mov` (227 MB) e salvar como
+      `public/videos/filme-completo.mp4`
 
 ## Licenças
 
 Código-fonte: uso livre dentro do projeto da Pardal Wedding Films.
-Fontes Eglen e Codec Pro: propriedade do Canva — uso dentro dos termos da
-plataforma.
+Fontes Eglen e Codec Pro: propriedade do Canva — uso dentro dos termos
+da plataforma.

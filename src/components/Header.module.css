@@ -7,16 +7,25 @@
   transition:
     background-color var(--dur-med) var(--ease-out),
     border-color var(--dur-med) var(--ease-out),
-    padding-block var(--dur-med) var(--ease-out);
+    padding-block var(--dur-med) var(--ease-out),
+    color var(--dur-med) var(--ease-out);
   border-bottom: 1px solid transparent;
+  color: var(--color-paper);
 }
 
 .header[data-scrolled="true"] {
-  background-color: color-mix(in srgb, var(--color-paper) 90%, transparent);
+  background-color: color-mix(in srgb, var(--color-paper) 92%, transparent);
   backdrop-filter: saturate(1.1) blur(10px);
   -webkit-backdrop-filter: saturate(1.1) blur(10px);
   border-bottom-color: var(--color-rule);
   padding-block: var(--space-3);
+  color: var(--color-ink);
+}
+
+/* Em rotas sem hero escuro (Films, About, etc.), o header começa já no
+   modo "scrolled" — texto em ink, fundo papel. */
+.header[data-light="true"]:not([data-scrolled="true"]) {
+  color: var(--color-ink);
 }
 
 .inner {
@@ -27,22 +36,45 @@
 }
 
 .brand {
-  font-family: var(--font-display);
-  font-size: var(--fs-lg);
-  letter-spacing: 0.01em;
-  line-height: 1;
-  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: inherit;
 }
 
-.brandSmall {
+.brandLogo {
+  width: 36px;
+  height: 36px;
+  color: inherit;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brandWord {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  letter-spacing: 0.005em;
+}
+
+.brandSubtitle {
   font-family: var(--font-body);
   text-transform: uppercase;
-  letter-spacing: 0.24em;
-  font-size: var(--fs-xs);
+  letter-spacing: 0.32em;
+  font-size: 0.6rem;
   font-weight: 500;
-  display: block;
-  margin-top: var(--space-1);
-  color: var(--color-ink-soft);
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
 }
 
 .nav {
@@ -54,9 +86,9 @@
 .link {
   font-family: var(--font-body);
   font-size: var(--fs-sm);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-ink);
+  color: inherit;
   position: relative;
   padding-block: var(--space-1);
 }
@@ -68,7 +100,7 @@
   right: 0;
   bottom: -2px;
   height: 1px;
-  background-color: var(--color-navy);
+  background-color: currentColor;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform var(--dur-med) var(--ease-out);
@@ -80,24 +112,39 @@
   transform: scaleX(1);
 }
 
-.link[aria-current="page"] {
-  color: var(--color-navy);
+.divider {
+  width: 1px;
+  height: 18px;
+  background-color: currentColor;
+  opacity: 0.3;
 }
 
 .menuButton {
   display: none;
   font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-ink);
-  border-radius: 0;
+  color: inherit;
+  padding-block: var(--space-2);
+  position: relative;
 }
 
-.menuButton:hover {
-  color: var(--color-paper);
-  background-color: var(--color-ink);
+.menuButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.menuButton:hover::after {
+  transform: scaleX(1);
 }
 
 @media (max-width: 760px) {
@@ -120,22 +167,50 @@
     padding: var(--space-8);
   }
   .nav[data-open="true"] .link {
-    font-size: var(--fs-xl);
+    font-size: var(--fs-2xl);
     font-family: var(--font-display);
+    font-style: italic;
     text-transform: none;
     letter-spacing: 0;
+    color: var(--color-ink);
+  }
+  .nav[data-open="true"] .link::after {
+    bottom: -4px;
+    background-color: var(--color-navy);
   }
   .closeBtn {
     position: absolute;
     top: var(--space-5);
     right: var(--space-5);
     font-family: var(--font-body);
-    font-size: var(--fs-xs);
-    letter-spacing: 0.22em;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
+    color: var(--color-ink);
+  }
+  .langInsideNav {
+    margin-top: var(--space-5);
+    color: var(--color-ink);
   }
 }
 
 .closeBtn {
   display: none;
+}
+
+.langInsideNav {
+  display: none;
+}
+
+.langSwitch {
+  display: inline-flex;
+}
+
+@media (max-width: 760px) {
+  .langInsideNav {
+    display: inline-flex;
+  }
+  .langSwitch {
+    display: none;
+  }
 }

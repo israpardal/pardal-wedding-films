@@ -1,31 +1,29 @@
 import FilmCard from "../components/FilmCard";
+import Ornament from "../components/Ornament";
 import PageTransition from "../components/PageTransition";
 import Reveal from "../components/Reveal";
 import SEO from "../components/SEO";
 import { FILMS } from "../data/films";
-import { SITE } from "../data/site";
+import { useT } from "../i18n/I18nProvider";
 import styles from "./Films.module.css";
 
 export default function Films() {
+  const t = useT();
+
   return (
     <PageTransition>
       <SEO
-        title={`Filmes · ${SITE.name}`}
-        description="Portfólio de filmes de casamento da Pardal — Brasil, atendendo em todo o território nacional."
+        title={t((d) => d.meta.filmsTitle)}
+        description={t((d) => d.meta.filmsDescription)}
       />
 
       <div className={`container-wide ${styles.page}`}>
         <header className={styles.header}>
           <Reveal>
-            <p className={styles.eyebrow}>Portfólio</p>
-            <h1 className={styles.title}>Filmes que envelhecem bem.</h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className={styles.lede}>
-              Cada filme é um pequeno arquivo do dia — feito devagar, em frame
-              rate de memória. Veja uma seleção dos casamentos que filmamos
-              recentemente.
-            </p>
+            <Ornament className={styles.ornament} size={140} />
+            <p className={styles.eyebrow}>{t((d) => d.films.eyebrow)}</p>
+            <h1 className={styles.title}>{t((d) => d.films.title)}</h1>
+            <p className={styles.lede}>{t((d) => d.films.lede)}</p>
           </Reveal>
         </header>
 

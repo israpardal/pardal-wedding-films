@@ -1,0 +1,53 @@
+.wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-color: var(--color-ink);
+}
+
+.video,
+.poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.poster {
+  z-index: 0;
+}
+
+.video {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease-out);
+}
+
+.video[data-ready="true"] {
+  opacity: 1;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0.45) 0%,
+    rgba(14, 14, 14, 0.18) 35%,
+    rgba(14, 14, 14, 0.25) 65%,
+    rgba(14, 14, 14, 0.7) 100%
+  );
+}
+
+.scrimLight {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0.25) 0%,
+    rgba(14, 14, 14, 0.08) 40%,
+    rgba(14, 14, 14, 0.2) 100%
+  );
+}

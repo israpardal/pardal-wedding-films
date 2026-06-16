@@ -1,27 +1,37 @@
 import { Link } from "react-router-dom";
 
-import { NAV_LINKS, SITE, SOCIAL } from "../data/site";
+import { SITE, SOCIAL } from "../data/site";
+import { useT } from "../i18n/I18nProvider";
+import PardalLogo from "./PardalLogo";
+import WhatsAppIcon from "./WhatsAppIcon";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
+  const t = useT();
+
+  const navItems = [
+    { to: "/filmes", label: t((d) => d.nav.films) },
+    { to: "/sobre", label: t((d) => d.nav.about) },
+    { to: "/investimento", label: t((d) => d.nav.investment) },
+    { to: "/contato", label: t((d) => d.nav.contact) },
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className="container-wide">
         <div className={styles.grid}>
           <div>
-            <Link to="/" className={styles.brand} aria-label={SITE.name}>
-              Pardal
+            <Link to="/" className={styles.brandRow} aria-label={SITE.name}>
+              <PardalLogo className={styles.brandLogo} />
+              <span className={styles.brand}>{t((d) => d.brand.name)}</span>
             </Link>
-            <p className={styles.tagline}>
-              Filmes de casamento, atemporais. Brasil, atendendo em todo o
-              território nacional.
-            </p>
+            <p className={styles.tagline}>{t((d) => d.footer.tagline)}</p>
           </div>
 
           <div>
-            <h2 className={styles.colTitle}>Navegação</h2>
+            <h2 className={styles.colTitle}>{t((d) => d.footer.nav)}</h2>
             <ul className={styles.list}>
-              {NAV_LINKS.map((item) => (
+              {navItems.map((item) => (
                 <li key={item.to}>
                   <Link to={item.to}>{item.label}</Link>
                 </li>
@@ -30,7 +40,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className={styles.colTitle}>Onde nos achar</h2>
+            <h2 className={styles.colTitle}>{t((d) => d.footer.findUs)}</h2>
             <ul className={styles.list}>
               <li>
                 <a
@@ -46,7 +56,9 @@ export default function Footer() {
                   href={SOCIAL.whatsapp.url}
                   target="_blank"
                   rel="noreferrer noopener"
+                  className={styles.wppRow}
                 >
+                  <WhatsAppIcon size={16} />
                   WhatsApp
                 </a>
               </li>
@@ -59,9 +71,10 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span>
-            © {new Date().getFullYear()} {SITE.name} — {SITE.location}
+            © {new Date().getFullYear()} {SITE.name} —{" "}
+            {t((d) => d.brand.location)}
           </span>
-          <span>Filmes únicos, poéticos e analógicos.</span>
+          <span>{t((d) => d.footer.signature)}</span>
         </div>
       </div>
     </footer>

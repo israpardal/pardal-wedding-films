@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import GrainOverlay from "./components/GrainOverlay";
 import Header from "./components/Header";
+import { I18nProvider } from "./i18n/I18nProvider";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
 import FilmDetail from "./routes/FilmDetail";
@@ -21,7 +22,7 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+function AppShell() {
   const location = useLocation();
 
   return (
@@ -44,5 +45,13 @@ export default function App() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <I18nProvider>
+      <AppShell />
+    </I18nProvider>
   );
 }

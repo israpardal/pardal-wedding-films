@@ -51,6 +51,15 @@ h4 {
   color: var(--color-ink);
 }
 
+/* Versão em itálico — usar no display para puxar o tom de convite de
+   casamento (mais clássico, menos editorial moderno). */
+.display-italic,
+em.display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
 p {
   margin: 0;
 }

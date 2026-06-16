@@ -1,23 +1,26 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 
+import Ornament from "../components/Ornament";
 import PageTransition from "../components/PageTransition";
 import Reveal from "../components/Reveal";
 import SEO from "../components/SEO";
+import WhatsAppIcon from "../components/WhatsAppIcon";
 import { SITE, SOCIAL } from "../data/site";
+import { useT } from "../i18n/I18nProvider";
 import styles from "./Contact.module.css";
 
 /**
  * Formulário de contato — sem backend nesta fase.
  * Por enquanto, o submit monta um `mailto:` com os campos preenchidos.
  *
- * Para conectar a um backend depois:
- *  - Substitua o handler `onSubmit` por uma chamada `fetch` para o seu endpoint
- *    (ex.: Resend, Formspree, Netlify Forms, ou rota própria);
- *  - Lembre de tratar erros e mostrar estado de sucesso/erro;
- *  - Adicione proteção contra spam (honeypot ou hCaptcha).
+ * Para conectar a um backend depois (Resend, Formspree, Netlify Forms etc.):
+ *  - Substitua o handler `onSubmit` por uma chamada `fetch` para o endpoint;
+ *  - Trate erros e mostre estado de sucesso/erro;
+ *  - Adicione proteção contra spam (já tem honeypot básico abaixo).
  */
 export default function Contact() {
+  const t = useT();
   const [sent, setSent] = useState(false);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -30,14 +33,13 @@ export default function Contact() {
     const place = (data.get("place") as string) ?? "";
     const message = (data.get("message") as string) ?? "";
 
-    const subject = `Conversa Pardal — ${name || "novo contato"}`;
+    const subject = `Pardal — ${name || "novo contato"}`;
     const body = [
       `Nome: ${name}`,
       `E-mail: ${email}`,
-      `Data do casamento: ${date}`,
+      `Data: ${date}`,
       `Local: ${place}`,
       "",
-      "Mensagem:",
       message,
     ].join("\n");
 
@@ -50,20 +52,17 @@ export default function Contact() {
   return (
     <PageTransition>
       <SEO
-        title={`Contato · ${SITE.name}`}
-        description="Fale com a Pardal — filmes de casamento únicos, poéticos e atemporais. Atendemos em todo o Brasil."
+        title={t((d) => d.meta.contactTitle)}
+        description={t((d) => d.meta.contactDescription)}
       />
 
       <div className={`container ${styles.page}`}>
         <header className={styles.header}>
           <Reveal>
-            <p className={styles.eyebrow}>Contato</p>
-            <h1 className={styles.title}>Conta pra gente sobre o filme de vocês.</h1>
-            <p className={styles.lede}>
-              Preenche aí embaixo o que vocês souberem por enquanto — data,
-              cidade, e o que vocês imaginam. Respondemos com calma, sempre por
-              e-mail ou WhatsApp.
-            </p>
+            <Ornament className={styles.ornament} size={140} />
+            <p className={styles.eyebrow}>{t((d) => d.contact.eyebrow)}</p>
+            <h1 className={styles.title}>{t((d) => d.contact.title)}</h1>
+            <p className={styles.lede}>{t((d) => d.contact.lede)}</p>
           </Reveal>
         </header>
 
@@ -72,7 +71,7 @@ export default function Contact() {
             <form className={styles.form} onSubmit={onSubmit}>
               <div className={styles.field}>
                 <label htmlFor="name" className={styles.label}>
-                  Nome do casal
+                  {t((d) => d.contact.fields.name)}
                 </label>
                 <input
                   id="name"
@@ -81,13 +80,13 @@ export default function Contact() {
                   required
                   autoComplete="name"
                   className={styles.input}
-                  placeholder="Ana & Tomás"
+                  placeholder={t((d) => d.contact.fields.namePh)}
                 />
               </div>
 
               <div className={styles.field}>
                 <label htmlFor="email" className={styles.label}>
-                  E-mail
+                  {t((d) => d.contact.fields.email)}
                 </label>
                 <input
                   id="email"
@@ -96,14 +95,14 @@ export default function Contact() {
                   required
                   autoComplete="email"
                   className={styles.input}
-                  placeholder="voces@exemplo.com"
+                  placeholder={t((d) => d.contact.fields.emailPh)}
                 />
               </div>
 
               <div className={styles.row}>
                 <div className={styles.field}>
                   <label htmlFor="date" className={styles.label}>
-                    Data do casamento
+                    {t((d) => d.contact.fields.date)}
                   </label>
                   <input
                     id="date"
@@ -114,32 +113,32 @@ export default function Contact() {
                 </div>
                 <div className={styles.field}>
                   <label htmlFor="place" className={styles.label}>
-                    Cidade / Estado
+                    {t((d) => d.contact.fields.place)}
                   </label>
                   <input
                     id="place"
                     name="place"
                     type="text"
                     className={styles.input}
-                    placeholder="Tiradentes — MG"
+                    placeholder={t((d) => d.contact.fields.placePh)}
                   />
                 </div>
               </div>
 
               <div className={styles.field}>
                 <label htmlFor="message" className={styles.label}>
-                  Mensagem
+                  {t((d) => d.contact.fields.message)}
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   className={styles.textarea}
-                  placeholder="Como vocês imaginam o filme? O que é importante para vocês?"
+                  placeholder={t((d) => d.contact.fields.messagePh)}
                 />
               </div>
 
-              {/* honeypot simples — bots costumam preencher; humanos não veem */}
+              {/* honeypot — humanos não veem; bots costumam preencher */}
               <input
                 type="text"
                 name="website"
@@ -150,7 +149,9 @@ export default function Contact() {
               />
 
               <button type="submit" className={styles.submit}>
-                {sent ? "Aberto no seu e-mail" : "Enviar mensagem"}
+                {sent
+                  ? t((d) => d.contact.submitted)
+                  : t((d) => d.contact.submit)}
               </button>
             </form>
           </Reveal>
@@ -158,15 +159,19 @@ export default function Contact() {
           <Reveal delay={0.1}>
             <aside className={styles.aside}>
               <div>
-                <h2 className={styles.asideTitle}>Ou diretamente.</h2>
+                <h2 className={styles.asideTitle}>
+                  {t((d) => d.contact.asideTitle)}
+                </h2>
                 <p className={styles.asideText}>
-                  Se preferir, fala com a gente pelo WhatsApp ou pelo Instagram.
+                  {t((d) => d.contact.asideText)}
                 </p>
               </div>
 
-              <div>
-                <div className={styles.asideRow}>
-                  <span className={styles.asideLabel}>WhatsApp</span>
+              <ul className={styles.asideList}>
+                <li className={styles.asideRow}>
+                  <span className={styles.asideLabel}>
+                    {t((d) => d.contact.asideLabels.whatsapp)}
+                  </span>
                   <span className={styles.asideValue}>
                     <a
                       href={SOCIAL.whatsapp.url}
@@ -176,9 +181,11 @@ export default function Contact() {
                       +55 94 99134-9842
                     </a>
                   </span>
-                </div>
-                <div className={styles.asideRow}>
-                  <span className={styles.asideLabel}>Instagram</span>
+                </li>
+                <li className={styles.asideRow}>
+                  <span className={styles.asideLabel}>
+                    {t((d) => d.contact.asideLabels.instagram)}
+                  </span>
                   <span className={styles.asideValue}>
                     <a
                       href={SOCIAL.instagram.url}
@@ -188,18 +195,22 @@ export default function Contact() {
                       {SOCIAL.instagram.handle}
                     </a>
                   </span>
-                </div>
-                <div className={styles.asideRow}>
-                  <span className={styles.asideLabel}>E-mail</span>
+                </li>
+                <li className={styles.asideRow}>
+                  <span className={styles.asideLabel}>
+                    {t((d) => d.contact.asideLabels.email)}
+                  </span>
                   <span className={styles.asideValue}>
                     <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
                   </span>
-                </div>
-                <div className={styles.asideRow}>
-                  <span className={styles.asideLabel}>Atendimento</span>
+                </li>
+                <li className={styles.asideRow}>
+                  <span className={styles.asideLabel}>
+                    {t((d) => d.contact.asideLabels.coverage)}
+                  </span>
                   <span className={styles.asideValue}>{SITE.location}</span>
-                </div>
-              </div>
+                </li>
+              </ul>
 
               <a
                 href={SOCIAL.whatsapp.url}
@@ -207,7 +218,8 @@ export default function Contact() {
                 rel="noreferrer noopener"
                 className={styles.wppBtn}
               >
-                {SOCIAL.whatsapp.cta}
+                <WhatsAppIcon size={18} className={styles.wppIcon} />
+                {t((d) => d.contact.whatsappCta)}
               </a>
             </aside>
           </Reveal>

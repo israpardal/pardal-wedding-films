@@ -1,0 +1,40 @@
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.btn {
+  position: relative;
+  padding-block: 2px;
+  color: var(--color-ink-soft);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.btn[aria-current="true"] {
+  color: var(--color-navy);
+}
+
+.btn[aria-current="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background-color: var(--color-navy);
+}
+
+.btn:hover {
+  color: var(--color-navy);
+}
+
+.sep {
+  opacity: 0.5;
+  user-select: none;
+}

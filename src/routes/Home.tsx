@@ -1,151 +1,155 @@
 import { Link } from "react-router-dom";
 
+import BackgroundVideo from "../components/BackgroundVideo";
 import FilmCard from "../components/FilmCard";
+import Ornament from "../components/Ornament";
 import PageTransition from "../components/PageTransition";
 import Reveal from "../components/Reveal";
 import SEO from "../components/SEO";
-import VideoHero from "../components/VideoHero";
 import { FILMS } from "../data/films";
-import { FEATURED_VIDEO, SITE } from "../data/site";
+import { useT } from "../i18n/I18nProvider";
 import styles from "./Home.module.css";
 
 export default function Home() {
+  const t = useT();
   const portfolioPreview = FILMS.slice(1, 3);
 
   return (
     <PageTransition>
       <SEO
-        title={`${SITE.name} — Filmes de casamento, atemporais`}
-        description={SITE.description}
+        title={t((d) => d.meta.homeTitle)}
+        description={t((d) => d.meta.homeDescription)}
       />
 
-      <VideoHero
-        // TODO: substituir por /videos/hero.mp4 quando houver vídeo
-        videoSrc={undefined}
-        poster={undefined}
-        eyebrow="Brasil · nationwide"
-        title="Filmes para o tempo passar devagar."
-        lede="Pardal é uma produtora de filmes de casamento. Um jeito de filmar quieto, observador — feito para envelhecer junto com vocês."
-        ctaPrimary={{ label: "Ver filmes", to: "/filmes" }}
-        ctaSecondary={{ label: "Conversar", to: "/contato" }}
-      />
-
-      <section className={styles.intro}>
-        <div className="container">
+      {/* ────── HERO com vídeo de fundo ────── */}
+      <section className={styles.hero} aria-label="Pardal Wedding Films">
+        <BackgroundVideo
+          src="/videos/hero.mp4"
+          mobileSrc="/videos/hero-portrait.mp4"
+          /* TODO: substituir por poster real em /public/images/hero-poster.jpg */
+        />
+        <div className={`container ${styles.heroContent}`}>
           <Reveal>
-            <p className={styles.introLabel}>O que fazemos</p>
-            <h2 className={styles.introTitle}>
-              Filmes únicos, poéticos e analógicos — atemporais.
+            <p className={styles.heroEyebrow}>{t((d) => d.hero.eyebrow)}</p>
+            <Ornament className={styles.heroOrnament} size={140} />
+            <h1 className={styles.heroTitle}>{t((d) => d.hero.title)}</h1>
+            <p className={styles.heroLede}>{t((d) => d.hero.lede)}</p>
+            <div className={styles.heroCtas}>
+              <Link to="/filmes" className={styles.heroLink}>
+                {t((d) => d.hero.ctaPrimary)}
+              </Link>
+              <span className={styles.heroDot} aria-hidden="true" />
+              <Link
+                to="/contato"
+                className={`${styles.heroLink} ${styles.heroLinkGhost}`}
+              >
+                {t((d) => d.hero.ctaSecondary)}
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ────── INTRO  ────── */}
+      <section className={styles.intro}>
+        <div className="container-narrow">
+          <Reveal>
+            <Ornament className={styles.introOrnament} size={120} />
+            <p className={styles.introEyebrow}>{t((d) => d.intro.eyebrow)}</p>
+            <h2 className={styles.introTitle}>{t((d) => d.intro.title)}</h2>
+            <div className={styles.introBody}>
+              <p>{t((d) => d.intro.p1)}</p>
+              <p>{t((d) => d.intro.p2)}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ────── FILME EM DESTAQUE — vídeo de fundo, sem iframe ────── */}
+      <section className={styles.featured} aria-labelledby="featured-title">
+        <BackgroundVideo src="/videos/hero-portrait.mp4" scrim="default" />
+        <div className={`container ${styles.featuredContent}`}>
+          <Reveal>
+            <p className={styles.featuredEyebrow}>
+              {t((d) => d.featured.eyebrow)}
+            </p>
+            <Ornament className={styles.featuredOrnament} size={120} />
+            <h2 id="featured-title" className={styles.featuredTitle}>
+              {t((d) => d.featured.title)}
             </h2>
           </Reveal>
         </div>
-
-        <div className="container">
-          <Reveal delay={0.1}>
-            <div className={styles.introBody}>
-              <p>
-                Cada casamento é um filme só. A gente chega cedo, observa por
-                muito tempo e filma com pressa nenhuma — para que o que ficar
-                pareça lembrança em vez de registro.
-              </p>
-              <p>
-                Trabalhamos em todo o Brasil. De casamentos íntimos a celebrações
-                grandes, em fazendas, praias, sítios, igrejas e casas de família.
-              </p>
-            </div>
-          </Reveal>
-        </div>
       </section>
 
-      <section className={styles.featured} aria-labelledby="featured-title">
-        <div className="container">
-          <Reveal>
-            <div className={styles.featuredHeader}>
-              <div>
-                <p className={styles.featuredEyebrow}>Filme em destaque</p>
-                <h2 id="featured-title" className={styles.featuredTitle}>
-                  O recorte mais recente.
-                </h2>
-              </div>
-              <a
-                href={FEATURED_VIDEO.url}
-                target="_blank"
-                rel="noreferrer noopener"
-                className={styles.featuredLink}
-              >
-                Abrir no Vimeo
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1} amount={0.1}>
-            <div className={styles.embedWrap}>
-              <iframe
-                src={FEATURED_VIDEO.embedSrc}
-                title="Filme em destaque"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
+      {/* ────── FILOSOFIA ────── */}
       <section className={styles.philosophy}>
         <div className="container-narrow">
           <Reveal>
-            <p className={styles.philosophyEyebrow}>Filosofia</p>
+            <p className={styles.philosophyEyebrow}>
+              {t((d) => d.philosophy.eyebrow)}
+            </p>
             <p className={styles.quote}>
-              A gente não <em>cobre</em> o casamento — a gente <em>filma</em> ele.
+              {t((d) => d.philosophy.quote1)}{" "}
+              <em>{t((d) => d.philosophy.quoteEm1)}</em>{" "}
+              {t((d) => d.philosophy.quote2)}{" "}
+              <em>{t((d) => d.philosophy.quoteEm2)}</em>{" "}
+              {t((d) => d.philosophy.quote3)}
             </p>
           </Reveal>
 
           <div className={styles.three}>
             <Reveal as="article" className={styles.threeItem} delay={0.05}>
-              <span className={styles.threeNum}>01 — Único</span>
-              <h3 className={styles.threeTitle}>Sem fórmula.</h3>
+              <span className={styles.threeNum}>
+                {t((d) => d.philosophy.one.label)}
+              </span>
+              <h3 className={styles.threeTitle}>
+                {t((d) => d.philosophy.one.title)}
+              </h3>
               <p className={styles.threeBody}>
-                Não temos um molde pronto. O filme nasce do casal — do jeito de
-                vocês olharem um para o outro, da casa onde cresceram, da música
-                que tocava no carro.
+                {t((d) => d.philosophy.one.body)}
               </p>
             </Reveal>
 
             <Reveal as="article" className={styles.threeItem} delay={0.15}>
-              <span className={styles.threeNum}>02 — Poético</span>
-              <h3 className={styles.threeTitle}>Linguagem de filme.</h3>
+              <span className={styles.threeNum}>
+                {t((d) => d.philosophy.two.label)}
+              </span>
+              <h3 className={styles.threeTitle}>
+                {t((d) => d.philosophy.two.title)}
+              </h3>
               <p className={styles.threeBody}>
-                Cortes longos, planos contemplativos, silêncios. O filme respira,
-                e o som ambiente continua sendo o melhor narrador.
+                {t((d) => d.philosophy.two.body)}
               </p>
             </Reveal>
 
             <Reveal as="article" className={styles.threeItem} delay={0.25}>
-              <span className={styles.threeNum}>03 — Analógico</span>
-              <h3 className={styles.threeTitle}>Para envelhecer bem.</h3>
+              <span className={styles.threeNum}>
+                {t((d) => d.philosophy.three.label)}
+              </span>
+              <h3 className={styles.threeTitle}>
+                {t((d) => d.philosophy.three.title)}
+              </h3>
               <p className={styles.threeBody}>
-                Texturas suaves, cor calma, nada de moda passageira. A ideia é
-                que daqui a vinte anos o filme ainda pareça novo — porque nunca
-                foi atual.
+                {t((d) => d.philosophy.three.body)}
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
+      {/* ────── PRÉVIA DO PORTFÓLIO ────── */}
       <section className={styles.portfolioPreview}>
         <div className="container-wide">
-          <div className={styles.portfolioHeader}>
-            <Reveal>
-              <h2 className={styles.portfolioTitle}>Filmes recentes.</h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <Link to="/filmes" className={styles.btnGhost}>
-                Ver portfólio completo
+          <Reveal>
+            <header className={styles.portfolioHeader}>
+              <h2 className={styles.portfolioTitle}>
+                {t((d) => d.portfolioPreview.title)}
+              </h2>
+              <Link to="/filmes" className={styles.portfolioAll}>
+                {t((d) => d.portfolioPreview.all)}
               </Link>
-            </Reveal>
-          </div>
+            </header>
+          </Reveal>
 
           <div className={styles.portfolioGrid}>
             {portfolioPreview.map((film, i) => (
@@ -157,24 +161,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ────── FECHAMENTO ────── */}
       <section className={styles.closing}>
         <div className="container-narrow">
           <Reveal>
+            <Ornament className={styles.closingOrnament} size={140} />
             <h2 className={styles.closingTitle}>
-              Vamos filmar o casamento de vocês?
+              {t((d) => d.homeClosing.title)}
             </h2>
-            <p className={styles.introBody}>
-              <span>
-                Conta um pouco sobre a data, o lugar e o que vocês imaginam.
-                Respondemos com calma, com atenção, e gosto de detalhe.
-              </span>
+            <p className={styles.closingBody}>
+              {t((d) => d.homeClosing.body)}
             </p>
             <div className={styles.closingCtas}>
-              <Link to="/contato" className={styles.btnPrimary}>
-                Conversar
+              <Link to="/contato" className={styles.closingLink}>
+                {t((d) => d.homeClosing.ctaPrimary)}
               </Link>
-              <Link to="/investimento" className={styles.btnGhost}>
-                Ver investimento
+              <span className={styles.closingDot} aria-hidden="true" />
+              <Link to="/investimento" className={styles.closingLink}>
+                {t((d) => d.homeClosing.ctaSecondary)}
               </Link>
             </div>
           </Reveal>

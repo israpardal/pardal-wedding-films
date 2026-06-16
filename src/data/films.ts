@@ -15,13 +15,17 @@ export interface Film {
   location: string;
   /** Ano do casamento — apenas referência editorial */
   year: number;
-  /** Plataforma do vídeo */
+  /** Plataforma do vídeo (para o link "Abrir no Vimeo/YouTube" no detalhe) */
   provider: FilmProvider;
-  /** ID do vídeo na plataforma (Vimeo: número; YouTube: ID alfanumérico) */
+  /** ID do vídeo na plataforma */
   videoId: string;
-  /** URL pública (link "ver no Vimeo / YouTube") */
+  /** URL pública do vídeo */
   url: string;
-  /** Caminho local da capa (em /public/images/…) — opcional */
+  /** Caminho local do vídeo principal em /public/videos — usado como fundo na página de detalhe */
+  videoSrc?: string;
+  /** Caminho local de um clip curto (mute, loop) para reproduzir como preview no card */
+  previewSrc?: string;
+  /** Caminho local da capa em /public/images — usada antes do vídeo carregar */
   poster?: string;
   /** Pequeno trecho editorial, em prosa */
   blurb?: string;
@@ -36,7 +40,8 @@ export const FILMS: Film[] = [
     provider: "vimeo",
     videoId: "1151770467",
     url: "https://vimeo.com/1151770467",
-    // TODO: adicionar poster real em /public/images/featured.jpg
+    videoSrc: "/videos/hero.mp4",
+    previewSrc: "/videos/hero.mp4",
     blurb:
       "Um recorte do nosso jeito de filmar — quieto, observador, à espera dos gestos pequenos.",
   },
@@ -49,6 +54,7 @@ export const FILMS: Film[] = [
     provider: "vimeo",
     videoId: "000000000",
     url: "https://vimeo.com/000000000",
+    previewSrc: "/videos/hero-portrait.mp4",
     blurb:
       "Um casamento na serra, com névoa baixa e um vestido que parecia escrito à mão.",
   },
@@ -60,6 +66,7 @@ export const FILMS: Film[] = [
     provider: "vimeo",
     videoId: "000000000",
     url: "https://vimeo.com/000000000",
+    previewSrc: "/videos/hero.mp4",
     blurb: "O mar como testemunha, o vento como câmera.",
   },
   {
@@ -70,6 +77,7 @@ export const FILMS: Film[] = [
     provider: "vimeo",
     videoId: "000000000",
     url: "https://vimeo.com/000000000",
+    previewSrc: "/videos/hero-portrait.mp4",
     blurb: "Uma cerimônia íntima, em casa, à luz de fim de tarde.",
   },
 ];

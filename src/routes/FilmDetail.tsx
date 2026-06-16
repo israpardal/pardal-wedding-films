@@ -1,91 +1,96 @@
 import { Link, useParams } from "react-router-dom";
 
+import BackgroundVideo from "../components/BackgroundVideo";
+import Ornament from "../components/Ornament";
 import PageTransition from "../components/PageTransition";
 import Reveal from "../components/Reveal";
 import SEO from "../components/SEO";
-import { embedSrc, getFilmBySlug } from "../data/films";
-import { SITE } from "../data/site";
+import { getFilmBySlug } from "../data/films";
+import { useT } from "../i18n/I18nProvider";
 import NotFound from "./NotFound";
 import styles from "./FilmDetail.module.css";
 
 export default function FilmDetail() {
+  const t = useT();
   const { slug } = useParams<{ slug: string }>();
   const film = slug ? getFilmBySlug(slug) : undefined;
 
   if (!film) return <NotFound />;
 
+  const platformName = film.provider === "vimeo" ? "Vimeo" : "YouTube";
+
   return (
     <PageTransition>
       <SEO
-        title={`${film.couple} · ${SITE.name}`}
+        title={`${film.couple} · Pardal Wedding Films`}
         description={
           film.blurb ??
-          `Filme de casamento — ${film.couple}, ${film.location}, ${film.year}.`
+          `${film.couple} — ${film.location}, ${film.year}.`
         }
       />
 
-      <article className={`container ${styles.page}`}>
-        <nav aria-label="Caminho" className={styles.crumbs}>
-          <Link to="/filmes">Filmes</Link>
-          <span aria-hidden="true">/</span>
-          <span>{film.couple}</span>
-        </nav>
+      <article className={styles.page}>
+        {/* HERO — vídeo do filme como fundo, sem iframe ou controles */}
+        <section className={styles.hero} aria-label={film.couple}>
+          {film.videoSrc ? (
+            <BackgroundVideo src={film.videoSrc} scrim="default" />
+          ) : (
+            <BackgroundVideo
+              src="/videos/hero.mp4"
+              scrim="default"
+            />
+          )}
+          <div className={`container ${styles.heroContent}`}>
+            <nav aria-label="Caminho" className={styles.crumbs}>
+              <Link to="/filmes">{t((d) => d.filmDetail.crumbHome)}</Link>
+              <span aria-hidden="true">·</span>
+              <span>{film.couple}</span>
+            </nav>
 
-        <Reveal>
-          <header className={styles.header}>
-            <h1 className={styles.couple}>{film.couple}</h1>
+            <Reveal>
+              <Ornament className={styles.ornament} size={140} />
+              <h1 className={styles.couple}>{film.couple}</h1>
 
-            <dl className={styles.meta}>
-              <div className={styles.metaRow}>
-                <span>Local</span>
+              <div className={styles.meta}>
                 <span>{film.location}</span>
-              </div>
-              <div className={styles.metaRow}>
-                <span>Ano</span>
+                <span className={styles.metaDot} aria-hidden="true" />
                 <span>{film.year}</span>
               </div>
-              <div className={styles.metaRow}>
-                <span>Plataforma</span>
-                <span>{film.provider === "vimeo" ? "Vimeo" : "YouTube"}</span>
-              </div>
-            </dl>
-          </header>
-        </Reveal>
-
-        <Reveal delay={0.1} amount={0.1}>
-          <div className={styles.embedWrap}>
-            <iframe
-              src={embedSrc(film)}
-              title={`Filme — ${film.couple}`}
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
+            </Reveal>
           </div>
-        </Reveal>
+        </section>
 
-        {film.blurb && (
-          <Reveal>
-            <p className={styles.blurb}>{film.blurb}</p>
-          </Reveal>
-        )}
+        {/* BODY — texto editorial + ações, sem caixas */}
+        <section className={styles.body}>
+          <div className="container-narrow">
+            {film.blurb && (
+              <Reveal>
+                <p className={styles.blurb}>{film.blurb}</p>
+              </Reveal>
+            )}
 
-        <div className={styles.actions}>
-          <a
-            href={film.url}
-            target="_blank"
-            rel="noreferrer noopener"
-            className={styles.btnGhost}
-          >
-            Abrir no {film.provider === "vimeo" ? "Vimeo" : "YouTube"}
-          </a>
-          <Link to="/filmes" className={styles.btnGhost}>
-            Voltar aos filmes
-          </Link>
-          <Link to="/contato" className={styles.btnPrimary}>
-            Conversar sobre o nosso filme
-          </Link>
-        </div>
+            <Reveal delay={0.1}>
+              <div className={styles.actions}>
+                <a
+                  href={film.url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={styles.link}
+                >
+                  {t((d) => d.filmDetail.openOn)} {platformName}
+                </a>
+                <span className={styles.dot} aria-hidden="true" />
+                <Link to="/filmes" className={styles.link}>
+                  {t((d) => d.filmDetail.backToFilms)}
+                </Link>
+                <span className={styles.dot} aria-hidden="true" />
+                <Link to="/contato" className={styles.link}>
+                  {t((d) => d.filmDetail.talkAboutOurs)}
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </section>
       </article>
     </PageTransition>
   );

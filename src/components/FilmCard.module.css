@@ -2,24 +2,41 @@
   display: block;
   color: var(--color-ink);
   position: relative;
+  text-align: center;
 }
 
 .frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background-color: var(--color-paper-warm);
+  margin-bottom: var(--space-5);
 }
 
 .poster,
+.video,
 .placeholder {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.poster {
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+  z-index: 1;
+}
+
+.video {
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 1.6s var(--ease-out);
+}
+
+.video[data-ready="true"] {
+  opacity: 1;
 }
 
 .placeholder {
@@ -27,66 +44,51 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: var(--fs-xl);
+  font-style: italic;
+  font-size: var(--fs-2xl);
   color: var(--color-ink-soft);
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(14, 14, 14, 0.04) 0 1px,
-      transparent 1px 14px
-    ),
-    var(--color-paper-warm);
+  background: var(--color-paper-warm);
+  z-index: 1;
 }
 
-.card:hover .poster,
-.card:hover .placeholder {
-  transform: scale(1.03);
-}
-
-.overlay {
+/* Filete decorativo nos cantos — só dois traços, em vez de moldura */
+.frame::before,
+.frame::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(14, 14, 14, 0.55) 0%,
-    rgba(14, 14, 14, 0) 55%
-  );
-  opacity: 0;
+  background-color: rgba(246, 244, 239, 0.55);
+  z-index: 3;
   transition: opacity var(--dur-med) var(--ease-out);
 }
 
-.card:hover .overlay,
-.card:focus-visible .overlay {
-  opacity: 1;
+.frame::before {
+  top: var(--space-4);
+  left: var(--space-4);
+  width: 28px;
+  height: 1px;
 }
 
-.cta {
-  position: absolute;
+.frame::after {
   bottom: var(--space-4);
-  left: var(--space-5);
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-paper);
-  opacity: 0;
-  transition: opacity var(--dur-med) var(--ease-out);
+  right: var(--space-4);
+  width: 28px;
+  height: 1px;
 }
 
-.card:hover .cta,
-.card:focus-visible .cta {
-  opacity: 1;
+.card:hover .poster {
+  transform: scale(1.04);
 }
 
 .meta {
-  padding-top: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-2);
+  align-items: center;
 }
 
 .couple {
   font-family: var(--font-display);
+  font-style: italic;
   font-size: var(--fs-xl);
   line-height: 1.1;
   color: var(--color-ink);
@@ -94,18 +96,19 @@
 
 .sub {
   font-family: var(--font-body);
-  font-size: var(--fs-sm);
-  letter-spacing: 0.06em;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
   color: var(--color-ink-soft);
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   gap: var(--space-3);
-  flex-wrap: wrap;
 }
 
-.sub::before {
+.sub::before,
+.sub::after {
   content: "";
   width: 18px;
   height: 1px;
   background-color: var(--color-navy);
-  align-self: center;
 }

@@ -5,56 +5,46 @@
 
 .header {
   padding-block: var(--space-7) var(--space-9);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-7);
-  align-items: end;
+  text-align: center;
 }
 
-@media (max-width: 760px) {
-  .header {
-    grid-template-columns: 1fr;
-  }
+.ornament {
+  display: block;
+  margin: 0 auto var(--space-5);
+  color: var(--color-navy);
 }
 
 .eyebrow {
   font-family: var(--font-body);
   font-size: var(--fs-xs);
   text-transform: uppercase;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.42em;
   color: var(--color-navy);
-  margin-bottom: var(--space-4);
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.eyebrow::before {
-  content: "";
-  width: 36px;
-  height: 1px;
-  background-color: var(--color-navy);
+  margin-bottom: var(--space-5);
 }
 
 .title {
   font-family: var(--font-display);
+  font-style: italic;
   font-size: var(--fs-3xl);
   line-height: 1;
-  max-width: 14ch;
+  max-width: 18ch;
+  margin: 0 auto var(--space-5);
 }
 
 .lede {
   font-family: var(--font-body);
   font-size: var(--fs-md);
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--color-ink-soft);
-  max-width: 48ch;
+  max-width: 50ch;
+  margin: 0 auto;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-8) var(--space-6);
+  gap: var(--space-9) var(--space-7);
 }
 
 .grid > :nth-child(odd) {
@@ -62,7 +52,7 @@
 }
 
 .grid > :nth-child(even) {
-  margin-top: var(--space-7);
+  margin-top: var(--space-8);
 }
 
 @media (max-width: 760px) {
