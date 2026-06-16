@@ -1,0 +1,60 @@
+:root {
+  /* Cores — preto e branco dominam, navy é o tempero */
+  --color-ink: #0e0e0e;
+  --color-ink-soft: #2a2a2a;
+  --color-paper: #f6f4ef;
+  --color-paper-warm: #ece8df;
+  --color-navy: #1b2a4a;
+  --color-navy-soft: #2c3d62;
+  --color-rule: rgba(14, 14, 14, 0.12);
+  --color-overlay: rgba(14, 14, 14, 0.4);
+
+  /* Tipografia — Eglen primeiro; fallback serifado refinado.
+     Codec Pro primeiro; fallback sans geométrico. */
+  --font-display: "Eglen", "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-body: "Codec Pro", "Manrope", "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Escala tipográfica — generosa, com respiro */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 2rem;
+  --fs-2xl: clamp(2.5rem, 5vw, 4rem);
+  --fs-3xl: clamp(3.5rem, 9vw, 7.5rem);
+  --fs-hero: clamp(4rem, 13vw, 11rem);
+
+  /* Espaçamento */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 9rem;
+
+  /* Layout */
+  --container-narrow: 720px;
+  --container: 1200px;
+  --container-wide: 1480px;
+  --header-h: 80px;
+
+  /* Movimento — lento, suave, analógico */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 220ms;
+  --dur-med: 480ms;
+  --dur-slow: 900ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med: 0ms;
+    --dur-slow: 0ms;
+  }
+}

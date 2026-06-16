@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-ssr
+.vite
+.env
+.env.local
+.DS_Store
+*.log
+
+# Local IDE / Claude state
+.claude/
+.vscode/
+.idea/

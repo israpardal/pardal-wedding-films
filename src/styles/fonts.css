@@ -1,0 +1,38 @@
+/*
+ * Fontes oficiais da marca (Canva): Eglen + Codec Pro.
+ * Os arquivos NÃO estão incluídos no repositório (são proprietários).
+ * Coloque-os em /public/fonts/ com os nomes abaixo para ativá-los.
+ * Enquanto isso, os fallbacks (Cormorant Garamond + Manrope) já renderizam.
+ */
+
+@font-face {
+  font-family: "Eglen";
+  src: url("/fonts/Eglen.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Codec Pro";
+  src: url("/fonts/CodecPro-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Codec Pro";
+  src: url("/fonts/CodecPro-Medium.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Codec Pro";
+  src: url("/fonts/CodecPro-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
