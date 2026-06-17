@@ -1,20 +1,20 @@
 export const pt = {
   meta: {
-    homeTitle: "Pardal Wedding Films — filmes de casamento, atemporais",
+    homeTitle: "Pardal Wedding Films · filmes de casamento atemporais",
     homeDescription:
-      "Pardal Wedding Films — produtora de filmes de casamento com estética analógica e atemporal. Brasil, atendendo em todo o território nacional.",
+      "Pardal Wedding Films, produtora de filmes de casamento com estética analógica e atemporal. Atendimento nacional e internacional.",
     filmsTitle: "Filmes · Pardal Wedding Films",
     filmsDescription:
-      "Portfólio de filmes de casamento da Pardal — Brasil, atendendo em todo o território nacional.",
+      "Portfólio de filmes de casamento da Pardal. Atendimento nacional e internacional.",
     aboutTitle: "Sobre · Pardal Wedding Films",
     aboutDescription:
-      "Pardal Wedding Films — único, poético, analógico, atemporal. Brasil, atendendo em todo o território nacional.",
+      "Pardal Wedding Films. Único, poético, analógico, atemporal. Atendimento nacional e internacional.",
     investmentTitle: "Investimento · Pardal Wedding Films",
     investmentDescription:
-      "Pacotes e investimento da Pardal Wedding Films — filmes de casamento atemporais, em todo o Brasil.",
+      "Pacotes e investimento da Pardal Wedding Films. Filmes de casamento atemporais, atendimento nacional e internacional.",
     contactTitle: "Contato · Pardal Wedding Films",
     contactDescription:
-      "Fale com a Pardal — filmes de casamento únicos, poéticos e atemporais. Atendemos em todo o Brasil.",
+      "Fale com a Pardal. Filmes de casamento únicos, poéticos e atemporais. Atendimento nacional e internacional.",
     notFoundTitle: "Página não encontrada · Pardal Wedding Films",
   },
   nav: {
@@ -32,12 +32,12 @@ export const pt = {
     name: "Pardal",
     subtitle: "Wedding Films",
     full: "Pardal Wedding Films",
-    location: "Brasil — nationwide",
+    location: "Nacional e internacional",
   },
   hero: {
-    eyebrow: "Brasil · nationwide",
+    eyebrow: "Nacional · Internacional",
     title: "Filmes para o tempo passar devagar.",
-    lede: "Pardal é uma produtora de filmes de casamento. Um jeito de filmar quieto, observador — feito para envelhecer junto com vocês.",
+    lede: "Pardal é uma produtora de filmes de casamento. Um jeito de filmar quieto, observador, feito para envelhecer junto com vocês.",
     ctaPrimary: "Ver filmes",
     ctaSecondary: "WhatsApp",
     scroll: "scroll",
@@ -46,9 +46,9 @@ export const pt = {
   },
   intro: {
     eyebrow: "O que fazemos",
-    title: "Filmes únicos, poéticos e analógicos — atemporais.",
-    p1: "Cada casamento é um filme só. A gente chega cedo, observa por muito tempo e filma com pressa nenhuma — para que o que ficar pareça lembrança em vez de registro.",
-    p2: "Trabalhamos em todo o Brasil. De casamentos íntimos a celebrações grandes, em fazendas, praias, sítios, igrejas e casas de família.",
+    title: "Filmes únicos, poéticos e analógicos. Atemporais.",
+    p1: "Cada casamento é um filme só. A gente chega cedo, observa por muito tempo e filma com pressa nenhuma, para que o que ficar pareça lembrança em vez de registro.",
+    p2: "Atendemos no Brasil inteiro e também fora dele. De casamentos íntimos a celebrações grandes, em fazendas, praias, sítios, igrejas e casas de família.",
   },
   featured: {
     eyebrow: "Filme em destaque",
@@ -58,23 +58,23 @@ export const pt = {
     eyebrow: "Filosofia",
     quote1: "A gente não",
     quoteEm1: "cobre",
-    quote2: "o casamento — a gente",
+    quote2: "o casamento. A gente",
     quoteEm2: "filma",
     quote3: "ele.",
     one: {
-      label: "01 — Único",
+      label: "Único",
       title: "Sem fórmula.",
-      body: "Não temos um molde pronto. O filme nasce do casal — do jeito de vocês olharem um para o outro, da casa onde cresceram, da música que tocava no carro.",
+      body: "Não temos um molde pronto. O filme nasce do casal, do jeito de vocês olharem um para o outro, da casa onde cresceram, da música que tocava no carro.",
     },
     two: {
-      label: "02 — Poético",
+      label: "Poético",
       title: "Linguagem de filme.",
       body: "Cortes longos, planos contemplativos, silêncios. O filme respira, e o som ambiente continua sendo o melhor narrador.",
     },
     three: {
-      label: "03 — Analógico",
+      label: "Analógico",
       title: "Para envelhecer bem.",
-      body: "Texturas suaves, cor calma, nada de moda passageira. A ideia é que daqui a vinte anos o filme ainda pareça novo — porque nunca foi atual.",
+      body: "Texturas suaves, cor calma, nada de moda passageira. A ideia é que daqui a vinte anos o filme ainda pareça novo, porque nunca foi atual.",
     },
   },
   portfolioPreview: {
@@ -94,7 +94,7 @@ export const pt = {
   films: {
     eyebrow: "Portfólio",
     title: "Filmes que envelhecem bem.",
-    lede: "Cada filme é um pequeno arquivo do dia — feito devagar, em frame rate de memória. Veja uma seleção dos casamentos que filmamos recentemente.",
+    lede: "Cada filme é um pequeno arquivo do dia, feito devagar, em frame rate de memória. Veja uma seleção dos casamentos que filmamos recentemente.",
     seeFilm: "Ver filme",
   },
   filmDetail: {
@@ -110,12 +110,12 @@ export const pt = {
     eyebrow: "Sobre",
     title: "Um jeito quieto de olhar para o casamento.",
     introP1:
-      "A Pardal nasceu de uma vontade simples: fazer filmes de casamento que pareçam filme — não cobertura. Trabalhamos com olho de documentarista e mão de quem gosta de poesia.",
+      "A Pardal nasceu de uma vontade simples: fazer filmes de casamento que pareçam filme, não cobertura. Trabalhamos com olho de documentarista e mão de quem gosta de poesia.",
     introP2:
-      "Atendemos em todo o Brasil. Onde tiver casamento que faça sentido para vocês, a gente vai.",
+      "Atendemos no Brasil inteiro, e também fora dele. Onde tiver casamento que faça sentido para vocês, a gente vai.",
     bodyTitle: "Filmar pouco. Olhar muito.",
     bodyP1:
-      "A gente chega cedo, presta atenção e quase desaparece. Não interferimos no dia — o filme vem do que está acontecendo, não de uma cena montada.",
+      "A gente chega cedo, presta atenção e quase desaparece. Não interferimos no dia. O filme vem do que está acontecendo, não de uma cena montada.",
     bodyP2:
       "Gostamos da luz natural, do som do ambiente, dos gestos pequenos. Quando a gente faz uma escolha técnica, é para que ela não apareça. O que precisa aparecer é vocês.",
     bodyP3:
@@ -123,11 +123,11 @@ export const pt = {
     foundersEyebrow: "Os irmãos",
     foundersTitle: "Quem está atrás da câmera.",
     foundersBody:
-      "Pardal é trabalho de irmãos. Dois olhares, uma só mão — combinamos as funções de filme em filme, mas o jeito de olhar a gente herdou da mesma casa.",
+      "Pardal é trabalho de irmãos. Dois olhares, uma só mão. Combinamos as funções de filme em filme, mas o jeito de olhar a gente herdou da mesma casa.",
     manifestoEyebrow: "Linguagem",
     manifestoTitle: "Uma estética atemporal.",
     manifestoBody:
-      "Nossos filmes são construídos sob uma estética atemporal — elegante, clássica e sensível. Acredito na beleza que permanece, na emoção que resiste ao tempo e na narrativa que valoriza o essencial. Cada cena é pensada como uma memória viva, com composições delicadas, ritmo cinematográfico e uma direção sutil, que respeita a autenticidade de cada casal. Não busco modismos ou tendências passageiras. Minha linguagem visual é discreta, refinada e comprometida com a verdade de cada história.",
+      "Nossos filmes são construídos sob uma estética atemporal, elegante, clássica e sensível. Acredito na beleza que permanece, na emoção que resiste ao tempo e na narrativa que valoriza o essencial. Cada cena é pensada como uma memória viva, com composições delicadas, ritmo cinematográfico e uma direção sutil, que respeita a autenticidade de cada casal. Não busco modismos ou tendências passageiras. Minha linguagem visual é discreta, refinada e comprometida com a verdade de cada história.",
     valuesTitle: "Valores",
     values: {
       one: {
@@ -148,13 +148,13 @@ export const pt = {
       four: {
         label: "04",
         title: "Atemporal",
-        body: "O nosso compromisso é que o filme envelheça bem — e talvez fique ainda melhor com o tempo.",
+        body: "O nosso compromisso é que o filme envelheça bem, e talvez fique ainda melhor com o tempo.",
       },
     },
   },
   investment: {
     eyebrow: "Investimento",
-    title: "Pacotes pensados como filmes — não como pacotes.",
+    title: "Pacotes pensados como filmes, não como pacotes.",
     lede: "Os pacotes abaixo são pontos de partida. Cada casamento é diferente, então depois de uma boa conversa montamos a proposta certa para a data, o lugar e o tipo de filme que vocês querem guardar.",
     sectionLabel: "Pacotes de filmagem",
     underConsultation: "sob consulta",
@@ -162,9 +162,9 @@ export const pt = {
     askProposal: "Pedir proposta",
     howEyebrow: "Como funciona",
     howP1:
-      "A proposta certa nasce da conversa. Conta para a gente a data, o lugar, e um pouco do que vocês imaginam para o filme — a gente volta com uma proposta personalizada, e com tempo para vocês decidirem com calma.",
+      "A proposta certa nasce da conversa. Conta para a gente a data, o lugar, e um pouco do que vocês imaginam para o filme. A gente volta com uma proposta personalizada, e com tempo para vocês decidirem com calma.",
     howP2:
-      "Como atendemos em todo o Brasil, o deslocamento entra na proposta quando o casamento é fora do nosso eixo principal.",
+      "Atendemos no Brasil inteiro e também fora dele. O deslocamento entra na proposta quando o casamento é fora do nosso eixo principal.",
     packages: {
       one: {
         label: "Pacote 01",
@@ -187,15 +187,15 @@ export const pt = {
           "Filme principal de 8 a 12 minutos",
           "Teaser para redes sociais",
           "Cobertura do dia inteiro",
-          "Som direto + trilha original ou licenciada",
+          "Som direto e trilha original ou licenciada",
           "Entrega digital em alta resolução",
         ],
       },
       three: {
         label: "Pacote 03",
-        name: "Filme + arquivo",
+        name: "Filme e arquivo",
         intro:
-          "Para quem quer o filme editado e também o material bruto guardado — para o tempo, para os filhos, para depois.",
+          "Para quem quer o filme editado e também o material bruto guardado, para o tempo, para os filhos, para depois.",
         features: [
           "Tudo do pacote completo",
           "Backup do material bruto",
@@ -208,15 +208,15 @@ export const pt = {
   contact: {
     eyebrow: "Contato",
     title: "Conta pra gente sobre o filme de vocês.",
-    lede: "Preenche aí embaixo o que vocês souberem por enquanto — data, cidade, e o que vocês imaginam. Respondemos com calma, sempre por e-mail ou WhatsApp.",
+    lede: "Preenche aí embaixo o que vocês souberem por enquanto: data, cidade, e o que vocês imaginam. Respondemos com calma, sempre por e-mail ou WhatsApp.",
     fields: {
       name: "Nome do casal",
-      namePh: "Ana & Tomás",
+      namePh: "Ana e Tomás",
       email: "E-mail",
       emailPh: "voces@exemplo.com",
       date: "Data do casamento",
-      place: "Cidade / Estado",
-      placePh: "Tiradentes — MG",
+      place: "Cidade / Estado / País",
+      placePh: "Tiradentes, MG",
       message: "Mensagem",
       messagePh: "Como vocês imaginam o filme? O que é importante para vocês?",
     },
@@ -226,7 +226,7 @@ export const pt = {
       "Ao enviar, abre o seu e-mail com a mensagem já pronta. A gente responde por e-mail ou WhatsApp em até 24h.",
     asideTitle: "Ou diretamente.",
     asideText:
-      "Se preferir, fala com a gente pelo WhatsApp — costuma ser o caminho mais rápido.",
+      "Se preferir, fala com a gente pelo WhatsApp. Costuma ser o caminho mais rápido.",
     asideLabels: {
       whatsapp: "WhatsApp",
       instagram: "Instagram",
@@ -237,7 +237,7 @@ export const pt = {
   },
   footer: {
     tagline:
-      "Filmes de casamento, atemporais. Brasil, atendendo em todo o território nacional.",
+      "Filmes de casamento atemporais. Atendimento nacional e internacional.",
     nav: "Navegação",
     findUs: "Onde nos achar",
     signature: "Filmes únicos, poéticos e analógicos.",
@@ -245,7 +245,7 @@ export const pt = {
   notFound: {
     code: "404",
     title: "Esta cena ficou no chão da sala.",
-    body: "A página que você procura não está mais aqui — ou nunca esteve. Voltemos para o início.",
+    body: "A página que você procura não está mais aqui, ou nunca esteve. Voltemos para o início.",
     back: "Voltar à página inicial",
   },
   lang: {

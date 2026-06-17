@@ -8,8 +8,8 @@ export const SITE = {
   shortName: "Pardal",
   tagline: "Filmes de casamento, atemporais.",
   description:
-    "Pardal Wedding Films — produtora de filmes de casamento com estética analógica e atemporal. Brasil, atendendo em todo o território nacional.",
-  location: "Brasil — nationwide",
+    "Pardal Wedding Films, produtora de filmes de casamento com estética analógica e atemporal. Atendimento nacional e internacional.",
+  location: "Nacional e internacional",
   // E-mail de contato — o submit do formulário abre o cliente de e-mail
   // do visitante com este endereço como destinatário.
   // Quando registrar contato@pardal.co, é só trocar aqui.

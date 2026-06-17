@@ -2,26 +2,26 @@ import type { Dict } from "./pt";
 
 /**
  * English translation.
- * NOTE: First-pass translation — review for tone before going live.
+ * NOTE: First-pass translation. Review for tone before going live.
  * The voice should stay quiet and editorial, not corporate.
  */
 export const en: Dict = {
   meta: {
-    homeTitle: "Pardal Wedding Films — timeless wedding films",
+    homeTitle: "Pardal Wedding Films · timeless wedding films",
     homeDescription:
-      "Pardal Wedding Films — wedding film studio with an analogue, timeless aesthetic. Brazil-based, available nationwide.",
+      "Pardal Wedding Films, a wedding film studio with an analogue, timeless aesthetic. Available nationally and internationally.",
     filmsTitle: "Films · Pardal Wedding Films",
     filmsDescription:
-      "Wedding film portfolio by Pardal — based in Brazil, available nationwide.",
+      "Wedding film portfolio by Pardal. Available nationally and internationally.",
     aboutTitle: "About · Pardal Wedding Films",
     aboutDescription:
-      "Pardal Wedding Films — singular, poetic, analogue, timeless. Based in Brazil, available nationwide.",
+      "Pardal Wedding Films. Singular, poetic, analogue, timeless. Available nationally and internationally.",
     investmentTitle: "Investment · Pardal Wedding Films",
     investmentDescription:
-      "Packages and investment from Pardal Wedding Films — timeless wedding films, throughout Brazil.",
+      "Packages and investment from Pardal Wedding Films. Timeless wedding films, available nationally and internationally.",
     contactTitle: "Contact · Pardal Wedding Films",
     contactDescription:
-      "Talk to Pardal — singular, poetic, timeless wedding films. Available throughout Brazil.",
+      "Talk to Pardal. Singular, poetic, timeless wedding films. Available nationally and internationally.",
     notFoundTitle: "Page not found · Pardal Wedding Films",
   },
   nav: {
@@ -39,12 +39,12 @@ export const en: Dict = {
     name: "Pardal",
     subtitle: "Wedding Films",
     full: "Pardal Wedding Films",
-    location: "Brazil — nationwide",
+    location: "National and international",
   },
   hero: {
-    eyebrow: "Brazil · nationwide",
+    eyebrow: "National · International",
     title: "Films made for time to pass slowly.",
-    lede: "Pardal is a wedding film studio. A quiet, observant way of filming — made to age with you.",
+    lede: "Pardal is a wedding film studio. A quiet, observant way of filming, made to age with you.",
     ctaPrimary: "See films",
     ctaSecondary: "WhatsApp",
     scroll: "scroll",
@@ -53,9 +53,9 @@ export const en: Dict = {
   },
   intro: {
     eyebrow: "What we do",
-    title: "Wedding films — singular, poetic, analogue, timeless.",
-    p1: "Every wedding is its own film. We arrive early, watch for a long time, and film without hurry — so that what stays feels like a memory rather than a record.",
-    p2: "We work everywhere in Brazil — intimate weddings, large celebrations, on ranches, beaches, country houses, churches and family homes.",
+    title: "Wedding films. Singular, poetic, analogue, timeless.",
+    p1: "Every wedding is its own film. We arrive early, watch for a long time, and film without hurry, so that what stays feels like a memory rather than a record.",
+    p2: "We work across Brazil and beyond. From intimate weddings to large celebrations, on ranches, beaches, country houses, churches and family homes.",
   },
   featured: {
     eyebrow: "Featured film",
@@ -65,23 +65,23 @@ export const en: Dict = {
     eyebrow: "Philosophy",
     quote1: "We don't",
     quoteEm1: "cover",
-    quote2: "the wedding — we",
+    quote2: "the wedding. We",
     quoteEm2: "film",
     quote3: "it.",
     one: {
-      label: "01 — Singular",
+      label: "Singular",
       title: "No formula.",
-      body: "There's no template. The film comes from the couple — from how you look at each other, the house you grew up in, the song that played in the car.",
+      body: "There's no template. The film comes from the couple, from how you look at each other, the house you grew up in, the song that played in the car.",
     },
     two: {
-      label: "02 — Poetic",
+      label: "Poetic",
       title: "Film language.",
       body: "Long takes, contemplative shots, silences. The film breathes, and ambient sound remains the best narrator.",
     },
     three: {
-      label: "03 — Analogue",
+      label: "Analogue",
       title: "Made to age well.",
-      body: "Soft textures, calm color, nothing on trend. The idea is that twenty years from now the film still feels new — because it was never current.",
+      body: "Soft textures, calm color, nothing on trend. The idea is that twenty years from now the film still feels new, because it was never current.",
     },
   },
   portfolioPreview: {
@@ -90,7 +90,7 @@ export const en: Dict = {
   },
   promise: {
     eyebrow: "Our commitment",
-    body: "Our commitment is to turn memories into art — with discretion, sensitivity, and grace. We believe that every love story deserves to be told with the care of an attentive, devoted eye. It will be an honour to be part of this chapter of your lives.",
+    body: "Our commitment is to turn memories into art, with discretion, sensitivity, and grace. We believe that every love story deserves to be told with the care of an attentive, devoted eye. It will be an honour to be part of this chapter of your lives.",
   },
   homeClosing: {
     title: "Shall we film your wedding?",
@@ -101,7 +101,7 @@ export const en: Dict = {
   films: {
     eyebrow: "Portfolio",
     title: "Films that age well.",
-    lede: "Each film is a small archive of the day — made slowly, at the frame rate of memory. A selection of recent weddings we have filmed.",
+    lede: "Each film is a small archive of the day, made slowly, at the frame rate of memory. A selection of recent weddings we have filmed.",
     seeFilm: "Watch film",
   },
   filmDetail: {
@@ -117,12 +117,12 @@ export const en: Dict = {
     eyebrow: "About",
     title: "A quiet way of looking at a wedding.",
     introP1:
-      "Pardal was born from a simple wish: to make wedding films that feel like films — not coverage. We work with a documentarian's eye and a poet's hand.",
+      "Pardal was born from a simple wish: to make wedding films that feel like films, not coverage. We work with a documentarian's eye and a poet's hand.",
     introP2:
-      "We're available throughout Brazil. Wherever the wedding that matters to you takes place, we'll be there.",
+      "We work across Brazil and beyond. Wherever the wedding that matters to you takes place, we'll be there.",
     bodyTitle: "Film little. Watch a lot.",
     bodyP1:
-      "We arrive early, pay close attention, and almost disappear. We don't interfere with the day — the film comes from what is happening, not from a staged scene.",
+      "We arrive early, pay close attention, and almost disappear. We don't interfere with the day. The film comes from what is happening, not from a staged scene.",
     bodyP2:
       "We love natural light, ambient sound, small gestures. When we make a technical choice, it's so that it doesn't show. What needs to show is you.",
     bodyP3:
@@ -130,11 +130,11 @@ export const en: Dict = {
     foundersEyebrow: "The brothers",
     foundersTitle: "Who is behind the camera.",
     foundersBody:
-      "Pardal is the work of two brothers. Two ways of seeing, one hand — we trade roles from film to film, but our way of looking we inherited from the same home.",
+      "Pardal is the work of two brothers. Two ways of seeing, one hand. We trade roles from film to film, but our way of looking we inherited from the same home.",
     manifestoEyebrow: "Language",
     manifestoTitle: "A timeless aesthetic.",
     manifestoBody:
-      "Our films are built on a timeless aesthetic — elegant, classical, sensitive. I believe in beauty that lasts, in emotion that holds up against time, in a narrative that values what is essential. Each scene is shaped as a living memory, with delicate compositions, cinematic pacing, and a subtle direction that respects the authenticity of every couple. I'm not chasing trends. My visual language is discreet, refined, and committed to the truth of each story.",
+      "Our films are built on a timeless aesthetic, elegant, classical, sensitive. I believe in beauty that lasts, in emotion that holds up against time, in a narrative that values what is essential. Each scene is shaped as a living memory, with delicate compositions, cinematic pacing, and a subtle direction that respects the authenticity of every couple. I'm not chasing trends. My visual language is discreet, refined, and committed to the truth of each story.",
     valuesTitle: "Values",
     values: {
       one: {
@@ -155,13 +155,13 @@ export const en: Dict = {
       four: {
         label: "04",
         title: "Timeless",
-        body: "Our commitment is that the film ages well — and perhaps becomes even better with time.",
+        body: "Our commitment is that the film ages well, and perhaps becomes even better with time.",
       },
     },
   },
   investment: {
     eyebrow: "Investment",
-    title: "Packages built like films — not like packages.",
+    title: "Packages built like films, not like packages.",
     lede: "The packages below are starting points. Every wedding is different, so after a good conversation we put together the right proposal for the date, the place, and the kind of film you want to keep.",
     sectionLabel: "Filming packages",
     underConsultation: "on request",
@@ -169,9 +169,9 @@ export const en: Dict = {
     askProposal: "Request proposal",
     howEyebrow: "How it works",
     howP1:
-      "The right proposal comes from the conversation. Tell us the date, the place, and a bit of what you imagine for the film — we come back with a personalized proposal, with time for you to decide calmly.",
+      "The right proposal comes from the conversation. Tell us the date, the place, and a bit of what you imagine for the film. We come back with a personalized proposal, with time for you to decide calmly.",
     howP2:
-      "Since we travel across Brazil, transportation enters the proposal when the wedding is outside our usual region.",
+      "We work across Brazil and beyond. Travel enters the proposal when the wedding is outside our usual region.",
     packages: {
       one: {
         label: "Package 01",
@@ -194,15 +194,15 @@ export const en: Dict = {
           "Main film, 8 to 12 minutes",
           "Teaser for social media",
           "Full-day coverage",
-          "Live sound + original or licensed score",
+          "Live sound and original or licensed score",
           "High-resolution digital delivery",
         ],
       },
       three: {
         label: "Package 03",
-        name: "Film + archive",
+        name: "Film and archive",
         intro:
-          "For those who want the edited film and the raw footage kept — for time, for children, for later.",
+          "For those who want the edited film and the raw footage kept, for time, for children, for later.",
         features: [
           "Everything from the full package",
           "Backup of raw footage",
@@ -215,15 +215,15 @@ export const en: Dict = {
   contact: {
     eyebrow: "Contact",
     title: "Tell us about your film.",
-    lede: "Fill in what you know for now — date, city, and what you're imagining. We reply slowly, by email or WhatsApp.",
+    lede: "Fill in what you know for now: date, city, and what you're imagining. We reply slowly, by email or WhatsApp.",
     fields: {
       name: "Couple's name",
-      namePh: "Ana & Tomás",
+      namePh: "Ana and Tomás",
       email: "Email",
       emailPh: "you@example.com",
       date: "Wedding date",
-      place: "City / State",
-      placePh: "Tiradentes — MG",
+      place: "City / State / Country",
+      placePh: "Tiradentes, MG",
       message: "Message",
       messagePh: "How do you picture the film? What matters most to you?",
     },
@@ -233,7 +233,7 @@ export const en: Dict = {
       "On send, this opens your email client with the message pre-filled. We reply by email or WhatsApp within 24h.",
     asideTitle: "Or directly.",
     asideText:
-      "If you prefer, message us on WhatsApp — usually the fastest way.",
+      "If you prefer, message us on WhatsApp. Usually the fastest way.",
     asideLabels: {
       whatsapp: "WhatsApp",
       instagram: "Instagram",
@@ -244,7 +244,7 @@ export const en: Dict = {
   },
   footer: {
     tagline:
-      "Timeless wedding films. Based in Brazil, available nationwide.",
+      "Timeless wedding films. Available nationally and internationally.",
     nav: "Navigation",
     findUs: "Where to find us",
     signature: "Singular, poetic, analogue films.",
@@ -252,7 +252,7 @@ export const en: Dict = {
   notFound: {
     code: "404",
     title: "This scene was left on the cutting room floor.",
-    body: "The page you're looking for isn't here anymore — or never was. Let's go back to the start.",
+    body: "The page you're looking for isn't here anymore, or never was. Let's go back to the start.",
     back: "Back to home",
   },
   lang: {

@@ -74,7 +74,7 @@ export default function BackgroundVideo({
           }
         }
       },
-      { rootMargin: "150px" },
+      { rootMargin: "80px" },
     );
     io.observe(el);
     return () => io.disconnect();

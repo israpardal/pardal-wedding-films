@@ -28,7 +28,7 @@ export default function FilmCard({ film }: { film: Film }) {
           }
         }
       },
-      { rootMargin: "200px" },
+      { rootMargin: "80px" },
     );
     io.observe(el);
     return () => io.disconnect();

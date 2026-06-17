@@ -33,7 +33,7 @@ export default function Contact() {
     const place = (data.get("place") as string) ?? "";
     const message = (data.get("message") as string) ?? "";
 
-    const subject = `Pardal — ${name || "novo contato"}`;
+    const subject = `Pardal · ${name || "novo contato"}`;
     const body = [
       `Nome: ${name}`,
       `E-mail: ${email}`,

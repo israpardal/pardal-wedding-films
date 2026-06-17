@@ -42,7 +42,7 @@ export const FILMS: Film[] = [
   {
     slug: "luana-e-denilson",
     couple: "Luana & Denilson",
-    location: "Parauapebas — PA",
+    location: "Parauapebas, PA",
     year: 2024,
     provider: "local",
     videoId: "",
@@ -53,7 +53,7 @@ export const FILMS: Film[] = [
   {
     slug: "sofia-e-emanuel",
     couple: "Sofia & Emanuel",
-    location: "Tucuruí — PA",
+    location: "Tucuruí, PA",
     year: 2024,
     provider: "local",
     videoId: "",
@@ -64,7 +64,7 @@ export const FILMS: Film[] = [
   {
     slug: "gizele-e-anderson",
     couple: "Gizele & Anderson",
-    location: "Marabá — PA",
+    location: "Marabá, PA",
     year: 2024,
     provider: "local",
     videoId: "",

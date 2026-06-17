@@ -26,7 +26,7 @@ export default function FilmDetail() {
         title={`${film.couple} · Pardal Wedding Films`}
         description={
           film.blurb ??
-          `${film.couple} — ${film.location}, ${film.year}.`
+          `${film.couple}. ${film.location}, ${film.year}.`
         }
       />
 
