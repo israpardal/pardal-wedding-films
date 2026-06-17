@@ -20,3 +20,5 @@ dist-ssr
 
 # Pasta de referências de design — não vai pro deploy
 /pardal/
+.vercel
+.env*
